@@ -1,6 +1,6 @@
 {
   "name": "rc9",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Read/Write RC files couldn't be easier!",
   "repository": "nuxt-contrib/rc9",
   "license": "MIT",
