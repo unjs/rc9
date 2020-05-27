@@ -94,7 +94,9 @@ export function serialize (config: RC, unflatten: boolean = true): string {
  */
 export function write (config: RC, options?: RCOptions) {
   options = withDefaults(options)
-  writeFileSync(resolve(options.dir!, options.name!), serialize(config, options.unflatten))
+  writeFileSync(resolve(options.dir!, options.name!), serialize(config, options.unflatten), {
+    encoding: 'utf-8'
+  })
 }
 
 /**
