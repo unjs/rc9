@@ -21,7 +21,10 @@ export const defaults: RCOptions = {
   unflatten: true
 }
 
-function withDefaults (options?: RCOptions): RCOptions {
+function withDefaults (options?: RCOptions | string): RCOptions {
+  if (typeof options === 'string') {
+    options = { name: options }
+  }
   return { ...defaults, ...options }
 }
 
@@ -61,7 +64,7 @@ export function parseFile (path: string, unflatten: boolean = true): RC {
  * @param name Name of rc file (default: '.conf')
  * @param dir Working directory (default: process.cwd())
  */
-export function read (options?: RCOptions): RC {
+export function read (options?: RCOptions| string): RC {
   options = withDefaults(options)
   return parseFile(resolve(options.dir!, options.name!), options.unflatten)
 }
@@ -70,7 +73,7 @@ export function read (options?: RCOptions): RC {
  * Read rc from user directory
  * @param name Name of rc file (default: '.conf')
  */
-export function readUser (options?: RCOptions): RC {
+export function readUser (options?: RCOptions | string): RC {
   options = withDefaults(options)
   options.dir = homedir()
   return read(options)
@@ -92,7 +95,7 @@ export function serialize (config: RC, unflatten: boolean = true): string {
  * @param name Name of rc file (default: '.conf')
  * @param dir Working directory (default: process.cwd())
  */
-export function write (config: RC, options?: RCOptions) {
+export function write (config: RC, options?: RCOptions | string) {
   options = withDefaults(options)
   writeFileSync(resolve(options.dir!, options.name!), serialize(config, options.unflatten), {
     encoding: 'utf-8'
@@ -103,7 +106,7 @@ export function write (config: RC, options?: RCOptions) {
  * Write rc from to user directory
  * @param name Name of rc file (default: '.conf')
  */
-export function writeUser (config: RC, options?: RCOptions) {
+export function writeUser (config: RC, options?: RCOptions | string) {
   options = withDefaults(options)
   options.dir = homedir()
   write(config, options)
