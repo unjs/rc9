@@ -2590,10 +2590,10 @@ delayed-stream@~1.0.0:
   resolved "https://registry.yarnpkg.com/delayed-stream/-/delayed-stream-1.0.0.tgz#df3ae199acadfb7d440aaae0b29e2272b24ec619"
   integrity sha1-3zrhmayt+31ECqrgsp4icrJOxhk=
 
-destr@^0.1.4:
-  version "0.1.4"
-  resolved "https://registry.yarnpkg.com/destr/-/destr-0.1.4.tgz#5ade43c2c02ffa7ad80e4d1516db309158d03d90"
-  integrity sha512-jGvlTgd/uZHtImTF8idU1FGu0Sg2/KBRp17HdsZ9dgZSkjt6lJRp/YW1gzHb1iEk0yJ4RrSQ3ujxbswa0gmwzQ==
+destr@^0.1.7:
+  version "0.1.7"
+  resolved "https://registry.yarnpkg.com/destr/-/destr-0.1.7.tgz#630dcd9b78407759955a93b9536a76d4ab9510fc"
+  integrity sha512-QC4u2bsOmdMo8g4yo/WShyZg9FnHVDqS8KJaYNNb1Hq1cL0sJTT2e2YLRapntrF8tUNIeZlGt5Mq/+ebaNoZaw==
 
 detect-indent@6.0.0:
   version "6.0.0"

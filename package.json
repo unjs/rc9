@@ -16,7 +16,7 @@
     "test": "yarn lint && jest"
   },
   "dependencies": {
-    "destr": "^0.1.4",
+    "destr": "^0.1.7",
     "flat": "^5.0.0"
   },
   "devDependencies": {
