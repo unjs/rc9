@@ -21,7 +21,7 @@ describe('rc', () => {
   })
 
   test('Read config', () => {
-    expect(read()).toMatchObject(config)
+    expect(read('.conf')).toMatchObject(config)
   })
 
   test('Read config (flat)', () => {
