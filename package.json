@@ -1,0 +1,35 @@
+{
+  "name": "rc9",
+  "version": "0.0.0",
+  "description": "",
+  "repository": "nuxt-contrib/rc9",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "bili src/index.ts",
+    "lint": "eslint --ext .ts .",
+    "release": "yarn test && yarn build && standard-version && git push --follow-tags && npm publish",
+    "test": "yarn lint && jest"
+  },
+  "dependencies": {
+    "destr": "^0.1.4",
+    "flat": "^5.0.0"
+  },
+  "devDependencies": {
+    "@nuxtjs/eslint-config-typescript": "latest",
+    "@types/flat": "^5.0.1",
+    "@types/jest": "^25.2.3",
+    "@types/node": "^14.0.5",
+    "bili": "latest",
+    "eslint": "latest",
+    "jest": "^26.0.1",
+    "rollup-plugin-typescript2": "latest",
+    "standard-version": "^8.0.0",
+    "ts-jest": "^26.0.0",
+    "typescript": "latest"
+  }
+}
