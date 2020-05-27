@@ -4,7 +4,7 @@ import { homedir } from 'os'
 import destr from 'destr'
 import flat from 'flat'
 
-const RE_KEY_VAL = /^\s*([\w.-]+)\s*=\s*(.*)?\s*$/
+const RE_KEY_VAL = /^\s*([^=\s]+)\s*=\s*(.*)?\s*$/
 const RE_LINES = /\n|\r|\r\n/
 
 type RC = { [key: string]: any }
