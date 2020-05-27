@@ -58,6 +58,16 @@ config.enabled = false
 write(config) // or write(config, { name: '.conf' })
 ```
 
+### User Config
+
+It is common to read/write config from user directory, you can use `readUser`/`writeuser` shortcuts to quickly do this:
+
+```js
+writeUser({ token: 123 }, '.zoorc')
+
+const conf = readUser('.zoorc') // { token: 123 }
+```
+
 ## Unflatten
 
 RC uses [flat](https://www.npmjs.com/package/flat) to automatically flat/unflat when writing and reading rcfile.
