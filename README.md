@@ -46,7 +46,7 @@ const config = read() // or read({ name: '.conf' })
 //   db: {
 //     username: 'db username',
 //     password: 'db pass',
-//     enabled: false
+//     enabled: true
 //   }
 // }
 ```
