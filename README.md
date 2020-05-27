@@ -40,7 +40,7 @@ db.enabled=true
 Reading config:
 
 ```ts
-const config = read() // or read({ name: '.conf' })
+const config = read() // or read('.conf')
 
 // config = {
 //   db: {
@@ -55,7 +55,7 @@ Update config:
 
 ```ts
 config.enabled = false
-write(config) // or write(config, { name: '.conf' })
+write(config) // or write(config, '.conf')
 ```
 
 ### User Config
