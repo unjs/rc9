@@ -115,13 +115,13 @@ function parseFile(path: string, unflatten?: boolean): RC;
  * @param name Name of rc file (default: '.conf')
  * @param dir Working directory (default: process.cwd())
  */
-function read(options?: RCOptions): RC;
+function read(options?: RCOptions | string): RC;
 
 /**
  * Read rc from user directory
  * @param name Name of rc file (default: '.conf')
  */
-function readUser(options?: RCOptions): RC;
+function readUser(options?: RCOptions | string): RC;
 
 /**
  * Serialize rc config
@@ -135,13 +135,13 @@ function serialize(config: RC, unflatten?: boolean): string;
  * @param name Name of rc file (default: '.conf')
  * @param dir Working directory (default: process.cwd())
  */
-function write(config: RC, options?: RCOptions): void;
+function write(config: RC, options?: RCOptions | string): void;
 
 /**
  * Write rc from to user directory
  * @param name Name of rc file (default: '.conf')
  */
-function writeUser(config: RC, options?: RCOptions): void;
+function writeUser(config: RC, options?: RCOptions | string): void;
 ```
 
 ### Why RC**9**?
