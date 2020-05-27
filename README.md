@@ -134,23 +134,23 @@ function write(config: RC, options?: RCOptions): void;
 function writeUser(config: RC, options?: RCOptions): void;
 ```
 
-## Why RC**9**?
+### Why RC**9**?
 
-Be first to guess it 🐇
+Be the first one to guess 🐇
 
 ## License
 
 MIT. Made with 💖
 
 <!-- Badges -->
-[npm-version-src]: https://img.shields.io/npm/v/create-require?style=flat-square
-[npm-version-href]: https://npmjs.com/package/create-require
+[npm-version-src]: https://img.shields.io/npm/v/rc9?style=flat-square
+[npm-version-href]: https://npmjs.com/package/rc9
 
-[npm-downloads-src]: https://img.shields.io/npm/dm/create-require?style=flat-square
-[npm-downloads-href]: https://npmjs.com/package/create-require
+[npm-downloads-src]: https://img.shields.io/npm/dm/rc9?style=flat-square
+[npm-downloads-href]: https://npmjs.com/package/rc9
 
-[github-actions-src]: https://img.shields.io/github/workflow/status/nuxt-contrib/create-require/test/master?style=flat-square
-[github-actions-href]: https://github.com/nuxt-contrib/create-require/actions?query=workflow%3Atest
+[github-actions-src]: https://img.shields.io/github/workflow/status/nuxt-contrib/rc9/ci/master?style=flat-square
+[github-actions-href]: https://github.com/nuxt-contrib/rc9/actions?query=workflow%3Aci
 
-[codecov-src]: https://img.shields.io/codecov/c/gh/nuxt-contrib/create-require/master?style=flat-square
-[codecov-href]: https://codecov.io/gh/nuxt-contrib/create-require
+[codecov-src]: https://img.shields.io/codecov/c/gh/nuxt-contrib/rc9/master?style=flat-square
+[codecov-href]: https://codecov.io/gh/nuxt-contrib/rc9
