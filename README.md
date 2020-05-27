@@ -89,45 +89,49 @@ So reading `count=123` results `{ count: 123 }` (instead of `{ count: "123" }`) 
 
 ```ts
 type RC = {
-    [key: string]: any;
-};
-
-interface RCOptions {
-    name?: string;
-    dir?: string;
-    unflatten?: boolean;
+    [key: string]: any
 }
 
-const defaults: RCOptions;
+interface RCOptions {
+    name?: string
+    dir?: string
+    unflatten?: boolean
+}
+
+const defaults: RCOptions = {
+  name: '.conf',
+  dir: process.cwd(),
+  unflatten: true
+}
 
 /**
  * Parse rc contents
  */
-function parse(contents: string, unflatten?: boolean): RC;
+function parse(contents: string, unflatten?: boolean): RC
 
 /**
  * Parse rc file
  */
-function parseFile(path: string, unflatten?: boolean): RC;
+function parseFile(path: string, unflatten?: boolean): RC
 
 /**
  * Read rc file
  * @param name Name of rc file (default: '.conf')
  * @param dir Working directory (default: process.cwd())
  */
-function read(options?: RCOptions | string): RC;
+function read(options?: RCOptions | string): RC
 
 /**
  * Read rc from user directory
  * @param name Name of rc file (default: '.conf')
  */
-function readUser(options?: RCOptions | string): RC;
+function readUser(options?: RCOptions | string): RC
 
 /**
  * Serialize rc config
  * @param config Unflatten config
  */
-function serialize(config: RC, unflatten?: boolean): string;
+function serialize(config: RC, unflatten?: boolean): string
 
 /**
  * Write rc config
@@ -135,13 +139,13 @@ function serialize(config: RC, unflatten?: boolean): string;
  * @param name Name of rc file (default: '.conf')
  * @param dir Working directory (default: process.cwd())
  */
-function write(config: RC, options?: RCOptions | string): void;
+function write(config: RC, options?: RCOptions | string): void
 
 /**
  * Write rc from to user directory
  * @param name Name of rc file (default: '.conf')
  */
-function writeUser(config: RC, options?: RCOptions | string): void;
+function writeUser(config: RC, options?: RCOptions | string): void
 ```
 
 ### Why RC**9**?
