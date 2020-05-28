@@ -1,8 +1,7 @@
-import flat from 'flat'
-import { write, read, readUser, parse, updateUser } from '../src'
+import { write, read, readUser, parse, update, updateUser, writeUser } from '../src'
 
 jest.mock('os', () => ({
-  homedir: () => process.cwd()
+  homedir: () => __dirname
 }))
 
 const config = {
@@ -13,19 +12,19 @@ const config = {
   }
 }
 
-const flatConfig: object = flat.flatten(config)
-
 describe('rc', () => {
   test('Write config', () => {
     write(config)
+    expect(read()).toMatchObject(config)
+  })
+
+  test('Write config (user)', () => {
+    writeUser(config)
+    expect(readUser()).toMatchObject(config)
   })
 
   test('Read config', () => {
     expect(read('.conf')).toMatchObject(config)
-  })
-
-  test('Read config (flat)', () => {
-    expect(read({ unflatten: false })).toMatchObject(flatConfig)
   })
 
   test('Update user config', () => {
@@ -35,8 +34,9 @@ describe('rc', () => {
 
   test('Parse ignore invalid lines', () => {
     expect(parse(`
-      foo=bar \n
-      # test \n
+      foo=bar
+      __proto__=no
+      # test
       bar = baz
     `)).toMatchObject({
       foo: 'bar',
@@ -46,5 +46,11 @@ describe('rc', () => {
 
   test('Ignore non-existent', () => {
     expect(read({ name: '.404' })).toMatchObject({})
+  })
+
+  test('Flat mode', () => {
+    const obj = { x: 1, 'x.y': 2 }
+    update(obj, { flat: true, name: '.conf2' })
+    expect(read({ flat: true, name: '.conf2' })).toMatchObject(obj)
   })
 })

@@ -17,7 +17,7 @@
   },
   "dependencies": {
     "defu": "^2.0.4",
-    "destr": "^0.1.8",
+    "destr": "^0.1.9",
     "flat": "^5.0.0"
   },
   "devDependencies": {
