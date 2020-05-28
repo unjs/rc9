@@ -21,10 +21,10 @@ Import into your Node.js project:
 
 ```js
 // CommonJS
-const { read, write } = require('rc9')
+const { read, write, update } = require('rc9')
 
 // ESM
-import { read, write } from 'rc9'
+import { read, write, update } from 'rc9'
 ```
 
 ## Usage
@@ -35,6 +35,12 @@ import { read, write } from 'rc9'
 db.username=db username
 db.password=db pass
 db.enabled=true
+```
+
+**Update config:**
+
+```ts
+update({ 'db.enabled': true }) // or update(..., { name: '.conf' })
 ```
 
 **Read/Write config:**
@@ -54,18 +60,14 @@ config.enabled = false
 write(config) // or write(config, '.conf')
 ```
 
-**Update config:**
+**User Config:**
 
-```ts
-update({ 'db.enabled': false })
-```
+It is common to keep config in user home directory (MacOS: `/Users/{name}`, Linux: `/home/{name}`, Windows: `C:\users\{name}`)
 
-### User Config
-
-It is common to globally read/write config from/to user home directory, you can use `readUser`/`writeuser` shortcuts to quickly do this:
+you can use `readUser`/`writeuser`/`updateUser` shortcuts to quickly do this:
 
 ```js
-writeUser({ token: 123 }, '.zoorc')
+writeUser({ token: 123 }, '.zoorc') // Will be saved in {home}/.zoorc
 
 const conf = readUser('.zoorc') // { token: 123 }
 ```
