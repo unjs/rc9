@@ -1,6 +1,6 @@
-# RC**9**
+# RC9
 
-> Read/Write RC files couldn't be easier!
+> Read/Write config couldn't be easier!
 
 [![npm version][npm-version-src]][npm-version-href]
 [![npm downloads][npm-downloads-src]][npm-downloads-href]
@@ -125,9 +125,9 @@ interface RCOptions {
 }
 ```
 
-### Why RC**9**?
+### Why RC9?
 
-Be the first one to guess 🐇
+Be the first one to guess 🐇 <!-- Hint: do research about rc files history -->
 
 ## License
 

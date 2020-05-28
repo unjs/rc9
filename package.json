@@ -1,7 +1,7 @@
 {
   "name": "rc9",
   "version": "0.0.4",
-  "description": "Read/Write RC files couldn't be easier!",
+  "description": "Read/Write config couldn't be easier!",
   "repository": "nuxt-contrib/rc9",
   "license": "MIT",
   "main": "dist/index.js",
