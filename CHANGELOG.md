@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.3](https://github.com/nuxt-contrib/rc9/compare/v0.0.2...v0.0.3) (2020-05-28)
+
+
+### Features
+
+* update() and improvements ([69539be](https://github.com/nuxt-contrib/rc9/commit/69539bed862cf5659971329d2007e78d97bcd2a4))
+
 ### [0.0.2](https://github.com/nuxt-contrib/rc9/compare/v0.0.1...v0.0.2) (2020-05-27)
 
 
