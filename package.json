@@ -4,6 +4,7 @@
   "description": "Read/Write config couldn't be easier!",
   "repository": "nuxt-contrib/rc9",
   "license": "MIT",
+  "sideEffects": false,
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
