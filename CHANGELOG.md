@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.7](https://github.com/nuxt-contrib/rc9/compare/v0.0.6...v0.0.7) (2020-05-28)
+
+
+### Bug Fixes
+
+* set `sideEffects` field in package.json to allow tree-shaking ([c8fc9cc](https://github.com/nuxt-contrib/rc9/commit/c8fc9ccc8eeffe70f5cf6d8ae832989c9ce3bdb4))
+
 ### [0.0.6](https://github.com/nuxt-contrib/rc9/compare/v0.0.5...v0.0.6) (2020-05-28)
 
 ### [0.0.5](https://github.com/nuxt-contrib/rc9/compare/v0.0.4...v0.0.5) (2020-05-28)
