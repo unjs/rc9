@@ -99,7 +99,18 @@ function serialize(config: RC): string;
 function write(config: RC, options?: RCOptions | string): void;
 function writeUser(config: RC, options?: RCOptions | string): void;
 function update(config: RC, options?: RCOptions | string): RC;
-function updateUser(config: RC, options?: RCOptions | string): Record<string, any>;
+function updateUser(config: RC, options?: RCOptions | string): RC;
+```
+
+**Types:**
+
+```ts
+type RC = Record<string, any>;
+interface RCOptions {
+    name?: string;
+    dir?: string;
+    flat?: boolean;
+}
 ```
 
 **Defaults:**

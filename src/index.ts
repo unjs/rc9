@@ -94,7 +94,7 @@ export function update (config: RC, options?: RCOptions | string): RC {
   return newConfig
 }
 
-export function updateUser (config: RC, options?: RCOptions | string) {
+export function updateUser (config: RC, options?: RCOptions | string): RC {
   options = withDefaults(options)
   options.dir = homedir()
   return update(config, options)
