@@ -79,7 +79,7 @@ It means that you can use `.` for keys to define objects. Some examples:
 - `hello.world = true` <=> `{ hello: { world: true }`
 - `test.0 = A` <=> `tags: [ 'A' ]`
 
-**Note:** If you use keys that can override like `x=` and `x.y=`, you can disable this feature by passing `unflatten: false` option
+**Note:** If you use keys that can override like `x=` and `x.y=`, you can disable this feature by passing `flat: true` option.
 
 ## Native Values
 
@@ -91,11 +91,11 @@ So reading `count=123` results `{ count: 123 }` (instead of `{ count: "123" }`) 
 
 ```ts
 const defaults: RCOptions;
-function parse(contents: string, unflatten?: boolean): RC;
-function parseFile(path: string, unflatten?: boolean): RC;
+function parse(contents: string, flat: boolean): RC;
+function parseFile(path: string, flat: boolean): RC;
 function read(options?: RCOptions | string): RC;
 function readUser(options?: RCOptions | string): RC;
-function serialize(config: RC, unflatten?: boolean): string;
+function serialize(config: RC): string;
 function write(config: RC, options?: RCOptions | string): void;
 function writeUser(config: RC, options?: RCOptions | string): void;
 function update(config: RC, options?: RCOptions | string): RC;
@@ -108,7 +108,7 @@ function updateUser(config: RC, options?: RCOptions | string): Record<string, an
 {
   name: '.conf',
   dir: process.cwd(),
-  unflatten: true
+  flat: false
 }
 ```
 
