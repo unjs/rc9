@@ -2,12 +2,13 @@ import { existsSync, readFileSync, writeFileSync } from 'fs'
 import { resolve } from 'path'
 import { homedir } from 'os'
 import destr from 'destr'
-import flat from 'flat'
+import f from 'flat'
+import defu from 'defu'
 
 const RE_KEY_VAL = /^\s*([^=\s]+)\s*=\s*(.*)?\s*$/
 const RE_LINES = /\n|\r|\r\n/
 
-type RC = { [key: string]: any }
+type RC = Record<string, any>
 
 interface RCOptions {
   name?: string,
@@ -28,9 +29,6 @@ function withDefaults (options?: RCOptions | string): RCOptions {
   return { ...defaults, ...options }
 }
 
-/**
- * Parse rc contents
- */
 export function parse (contents: string, unflatten: boolean = true): RC {
   const config: RC = {}
 
@@ -46,12 +44,9 @@ export function parse (contents: string, unflatten: boolean = true): RC {
     config[key] = destr(match[2].trim() /* val */)
   }
 
-  return unflatten ? flat.unflatten(config) : config
+  return unflatten ? f.unflatten(config, { overwrite: true }) : config
 }
 
-/**
- * Parse rc file
- */
 export function parseFile (path: string, unflatten: boolean = true): RC {
   if (!existsSync(path)) {
     return {}
@@ -59,42 +54,23 @@ export function parseFile (path: string, unflatten: boolean = true): RC {
   return parse(readFileSync(path, 'utf-8'), unflatten)
 }
 
-/**
- * Read rc file
- * @param name Name of rc file (default: '.conf')
- * @param dir Working directory (default: process.cwd())
- */
 export function read (options?: RCOptions| string): RC {
   options = withDefaults(options)
   return parseFile(resolve(options.dir!, options.name!), options.unflatten)
 }
 
-/**
- * Read rc from user directory
- * @param name Name of rc file (default: '.conf')
- */
 export function readUser (options?: RCOptions | string): RC {
   options = withDefaults(options)
   options.dir = homedir()
   return read(options)
 }
 
-/**
- * Serialize rc config
- * @param config Unflatten config
- */
 export function serialize (config: RC, unflatten: boolean = true): string {
-  return Object.entries(unflatten ? flat.flatten(config) : config)
+  return Object.entries(unflatten ? f.flatten(config) : config)
     .map(([key, val]) => `${key}=${typeof val === 'string' ? val : JSON.stringify(val)}`)
     .join('\n')
 }
 
-/**
- * Write rc config
- * @param config Unflatten config
- * @param name Name of rc file (default: '.conf')
- * @param dir Working directory (default: process.cwd())
- */
 export function write (config: RC, options?: RCOptions | string) {
   options = withDefaults(options)
   writeFileSync(resolve(options.dir!, options.name!), serialize(config, options.unflatten), {
@@ -102,12 +78,24 @@ export function write (config: RC, options?: RCOptions | string) {
   })
 }
 
-/**
- * Write rc from to user directory
- * @param name Name of rc file (default: '.conf')
- */
 export function writeUser (config: RC, options?: RCOptions | string) {
   options = withDefaults(options)
   options.dir = homedir()
   write(config, options)
+}
+
+export function update (config: RC, options?: RCOptions | string): RC {
+  options = withDefaults(options)
+  if (options.unflatten) {
+    config = f.unflatten(config, { overwrite: true })
+  }
+  const newConfig = defu(config, read(options))
+  write(newConfig, options)
+  return newConfig
+}
+
+export function updateUser (config: RC, options?: RCOptions | string) {
+  options = withDefaults(options)
+  options.dir = homedir()
+  return update(config, options)
 }

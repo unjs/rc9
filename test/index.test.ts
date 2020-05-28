@@ -1,5 +1,5 @@
 import flat from 'flat'
-import { write, read, readUser, writeUser, parse } from '../src'
+import { write, read, readUser, parse, updateUser } from '../src'
 
 jest.mock('os', () => ({
   homedir: () => process.cwd()
@@ -29,10 +29,8 @@ describe('rc', () => {
   })
 
   test('Update user config', () => {
-    const config = readUser()
-    config.db.enabled = true
-    writeUser(config)
-    expect(readUser().db.enabled).toBe(true)
+    updateUser({ 'db.password': '"123"' })
+    expect(readUser().db.password).toBe('123')
   })
 
   test('Parse ignore invalid lines', () => {

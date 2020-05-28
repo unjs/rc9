@@ -2585,15 +2585,20 @@ define-property@^2.0.2:
     is-descriptor "^1.0.2"
     isobject "^3.0.1"
 
+defu@^2.0.4:
+  version "2.0.4"
+  resolved "https://registry.yarnpkg.com/defu/-/defu-2.0.4.tgz#09659a6e87a8fd7178be13bd43e9357ebf6d1c46"
+  integrity sha512-G9pEH1UUMxShy6syWk01VQSRVs3CDWtlxtZu7A+NyqjxaCA4gSlWAKDBx6QiUEKezqS8+DUlXLI14Fp05Hmpwg==
+
 delayed-stream@~1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/delayed-stream/-/delayed-stream-1.0.0.tgz#df3ae199acadfb7d440aaae0b29e2272b24ec619"
   integrity sha1-3zrhmayt+31ECqrgsp4icrJOxhk=
 
-destr@^0.1.7:
-  version "0.1.7"
-  resolved "https://registry.yarnpkg.com/destr/-/destr-0.1.7.tgz#630dcd9b78407759955a93b9536a76d4ab9510fc"
-  integrity sha512-QC4u2bsOmdMo8g4yo/WShyZg9FnHVDqS8KJaYNNb1Hq1cL0sJTT2e2YLRapntrF8tUNIeZlGt5Mq/+ebaNoZaw==
+destr@^0.1.8:
+  version "0.1.8"
+  resolved "https://registry.yarnpkg.com/destr/-/destr-0.1.8.tgz#208f0332380d3f1ebf3ba0a29d1603c9b47884cd"
+  integrity sha512-FM5DXFleFqEifizIBj3q13FRNH3THqSGXKdJ3doDqsdjO7ldh1JGQZSlsujUjAVQ6g/Q1GQ4FAyC9RNrtJsobg==
 
 detect-indent@6.0.0:
   version "6.0.0"

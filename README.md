@@ -37,7 +37,7 @@ db.password=db pass
 db.enabled=true
 ```
 
-Reading config:
+**Read/Write config:**
 
 ```ts
 const config = read() // or read('.conf')
@@ -49,18 +49,20 @@ const config = read() // or read('.conf')
 //     enabled: true
 //   }
 // }
-```
 
-Update config:
-
-```ts
 config.enabled = false
 write(config) // or write(config, '.conf')
 ```
 
+**Update config:**
+
+```ts
+update({ 'db.enabled': false })
+```
+
 ### User Config
 
-It is common to read/write config from user directory, you can use `readUser`/`writeuser` shortcuts to quickly do this:
+It is common to globally read/write config from/to user home directory, you can use `readUser`/`writeuser` shortcuts to quickly do this:
 
 ```js
 writeUser({ token: 123 }, '.zoorc')
@@ -88,64 +90,26 @@ So reading `count=123` results `{ count: 123 }` (instead of `{ count: "123" }`) 
 ## Exports
 
 ```ts
-type RC = {
-    [key: string]: any
-}
+const defaults: RCOptions;
+function parse(contents: string, unflatten?: boolean): RC;
+function parseFile(path: string, unflatten?: boolean): RC;
+function read(options?: RCOptions | string): RC;
+function readUser(options?: RCOptions | string): RC;
+function serialize(config: RC, unflatten?: boolean): string;
+function write(config: RC, options?: RCOptions | string): void;
+function writeUser(config: RC, options?: RCOptions | string): void;
+function update(config: RC, options?: RCOptions | string): RC;
+function updateUser(config: RC, options?: RCOptions | string): Record<string, any>;
+```
 
-interface RCOptions {
-    name?: string
-    dir?: string
-    unflatten?: boolean
-}
+**Defaults:**
 
-const defaults: RCOptions = {
+```ts
+{
   name: '.conf',
   dir: process.cwd(),
   unflatten: true
 }
-
-/**
- * Parse rc contents
- */
-function parse(contents: string, unflatten?: boolean): RC
-
-/**
- * Parse rc file
- */
-function parseFile(path: string, unflatten?: boolean): RC
-
-/**
- * Read rc file
- * @param name Name of rc file (default: '.conf')
- * @param dir Working directory (default: process.cwd())
- */
-function read(options?: RCOptions | string): RC
-
-/**
- * Read rc from user directory
- * @param name Name of rc file (default: '.conf')
- */
-function readUser(options?: RCOptions | string): RC
-
-/**
- * Serialize rc config
- * @param config Unflatten config
- */
-function serialize(config: RC, unflatten?: boolean): string
-
-/**
- * Write rc config
- * @param config Unflatten config
- * @param name Name of rc file (default: '.conf')
- * @param dir Working directory (default: process.cwd())
- */
-function write(config: RC, options?: RCOptions | string): void
-
-/**
- * Write rc from to user directory
- * @param name Name of rc file (default: '.conf')
- */
-function writeUser(config: RC, options?: RCOptions | string): void
 ```
 
 ### Why RC**9**?
