@@ -29,7 +29,7 @@ function withDefaults (options?: RCOptions | string): RCOptions {
   return { ...defaults, ...options }
 }
 
-export function parse (contents: string, flat?: boolean): RC {
+export function parse (contents: string, options?: RCOptions): RC {
   const config: RC = {}
 
   const lines = contents.split(RE_LINES)
@@ -44,19 +44,19 @@ export function parse (contents: string, flat?: boolean): RC {
     config[key] = destr(match[2].trim() /* val */)
   }
 
-  return flat ? config : unflatten(config, { overwrite: true })
+  return options?.flat ? config : unflatten(config, { overwrite: true })
 }
 
-export function parseFile (path: string, flat?: boolean): RC {
+export function parseFile (path: string, options?: RCOptions): RC {
   if (!existsSync(path)) {
     return {}
   }
-  return parse(readFileSync(path, 'utf-8'), flat)
+  return parse(readFileSync(path, 'utf-8'), options)
 }
 
 export function read (options?: RCOptions| string): RC {
   options = withDefaults(options)
-  return parseFile(resolve(options.dir!, options.name!), options.flat)
+  return parseFile(resolve(options.dir!, options.name!), options)
 }
 
 export function readUser (options?: RCOptions | string): RC {

@@ -93,8 +93,8 @@ So reading `count=123` results `{ count: 123 }` (instead of `{ count: "123" }`) 
 
 ```ts
 const defaults: RCOptions;
-function parse(contents: string, flat: boolean): RC;
-function parseFile(path: string, flat: boolean): RC;
+function parse(contents: string, options?: RCOptions): RC
+function parseFile(path: string, options?: RCOptions): RC
 function read(options?: RCOptions | string): RC;
 function readUser(options?: RCOptions | string): RC;
 function serialize(config: RC): string;
