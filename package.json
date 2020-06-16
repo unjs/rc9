@@ -1,6 +1,6 @@
 {
   "name": "rc9",
-  "version": "0.0.7",
+  "version": "1.0.0",
   "description": "Read/Write config couldn't be easier!",
   "repository": "nuxt-contrib/rc9",
   "license": "MIT",
