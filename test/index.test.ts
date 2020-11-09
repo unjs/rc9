@@ -53,4 +53,15 @@ describe('rc', () => {
     update(obj, { flat: true, name: '.conf2' })
     expect(read({ flat: true, name: '.conf2' })).toMatchObject(obj)
   })
+
+  test('Parse indexless arrays', () => {
+    expect(parse(`
+      x.foo[]=A
+      x.foo[]=B
+    `)).toMatchObject({
+      x: {
+        foo: ['A', 'B']
+      }
+    })
+  })
 })

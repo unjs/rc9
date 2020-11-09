@@ -40,8 +40,20 @@ export function parse (contents: string, options?: RCOptions): RC {
 
     // Key
     const key = match[1]
-    if (!key || key === '__proto__' || key === 'constructor') { continue }
-    config[key] = destr(match[2].trim() /* val */)
+
+    if (!key || key === '__proto__' || key === 'constructor') {
+      continue
+    }
+
+    const val = destr(match[2].trim() /* val */)
+
+    if (key.endsWith('[]')) {
+      const nkey = key.substr(0, key.length - 2)
+      config[nkey] = (config[nkey] || []).concat(val)
+      continue
+    }
+
+    config[key] = val
   }
 
   return options?.flat ? config : unflatten(config, { overwrite: true })

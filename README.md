@@ -43,6 +43,12 @@ db.enabled=true
 update({ 'db.enabled': true }) // or update(..., { name: '.conf' })
 ```
 
+Push to an array:
+
+```ts
+update({ 'modules[]': 'test' })
+```
+
 **Read/Write config:**
 
 ```ts
@@ -82,6 +88,8 @@ It means that you can use `.` for keys to define objects. Some examples:
 - `test.0 = A` <=> `tags: [ 'A' ]`
 
 **Note:** If you use keys that can override like `x=` and `x.y=`, you can disable this feature by passing `flat: true` option.
+
+**Tip:** You can use keys ending with `[]` to push to an array like `test[]=A`
 
 ## Native Values
 
