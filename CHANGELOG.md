@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.1.0](https://github.com/nuxt-contrib/rc9/compare/v1.0.0...v1.1.0) (2020-11-09)
+
+
+### Features
+
+* support array push syntax ([6d1ff0d](https://github.com/nuxt-contrib/rc9/commit/6d1ff0dff0dfb4fa94b3687f91a8b629c020ed54))
+
 ## [1.0.0](https://github.com/nuxt-contrib/rc9/compare/v0.0.7...v1.0.0) (2020-06-16)
 
 ### [0.0.7](https://github.com/nuxt-contrib/rc9/compare/v0.0.6...v0.0.7) (2020-05-28)
