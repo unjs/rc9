@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.2.0](https://github.com/nuxt-contrib/rc9/compare/v1.1.0...v1.2.0) (2020-11-25)
+
+
+### Features
+
+* support `XDG_CONFIG_HOME` (closes [#1](https://github.com/nuxt-contrib/rc9/issues/1)) ([2792d9b](https://github.com/nuxt-contrib/rc9/commit/2792d9b93d16771425a56a0166e3d2a3cac3fa34))
+
 ## [1.1.0](https://github.com/nuxt-contrib/rc9/compare/v1.0.0...v1.1.0) (2020-11-09)
 
 
