@@ -73,7 +73,7 @@ export function read (options?: RCOptions| string): RC {
 
 export function readUser (options?: RCOptions | string): RC {
   options = withDefaults(options)
-  options.dir = homedir()
+  options.dir = process.env.XDG_CONFIG_HOME || homedir()
   return read(options)
 }
 
