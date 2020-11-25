@@ -11,7 +11,7 @@
     "dist"
   ],
   "scripts": {
-    "build": "bili src/index.ts --minimal",
+    "build": "siroc build",
     "lint": "eslint --ext .ts .",
     "release": "yarn test && yarn build && standard-version && git push --follow-tags && npm publish",
     "test": "yarn lint && jest"
@@ -26,10 +26,10 @@
     "@types/flat": "latest",
     "@types/jest": "latest",
     "@types/node": "latest",
-    "bili": "latest",
     "eslint": "latest",
     "jest": "latest",
     "rollup-plugin-typescript2": "latest",
+    "siroc": "latest",
     "standard-version": "latest",
     "ts-jest": "latest",
     "typescript": "latest"
