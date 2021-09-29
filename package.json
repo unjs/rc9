@@ -2,7 +2,7 @@
   "name": "rc9",
   "version": "1.2.0",
   "description": "Read/Write config couldn't be easier!",
-  "repository": "nuxt-contrib/rc9",
+  "repository": "unjs/rc9",
   "license": "MIT",
   "sideEffects": false,
   "main": "dist/index.js",
