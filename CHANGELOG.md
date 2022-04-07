@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.2.2](https://github.com/unjs/rc9/compare/v1.2.1...v1.2.2) (2022-04-07)
+
+
+### Bug Fixes
+
+* avoid optional chaining for node 12.x compatibility ([a4349ab](https://github.com/unjs/rc9/commit/a4349ab85606e71b65e6a4df70dc889d26223efd))
+
 ### [1.2.1](https://github.com/unjs/rc9/compare/v1.2.0...v1.2.1) (2022-04-07)
 
 
