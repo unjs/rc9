@@ -1,9 +1,7 @@
 import { describe, test, expect } from 'vitest'
 import { write, read, readUser, parse, update, updateUser, writeUser } from '../src'
 
-// jest.mock('os', () => ({
-//   homedir: () => __dirname
-// }))
+process.env.XDG_CONFIG_HOME = __dirname
 
 const config = {
   db: {
