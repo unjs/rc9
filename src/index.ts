@@ -29,7 +29,7 @@ function withDefaults (options?: RCOptions | string): RCOptions {
   return { ...defaults, ...options }
 }
 
-export function parse (contents: string, options?: RCOptions): RC {
+export function parse (contents: string, options: RCOptions = {}): RC {
   const config: RC = {}
 
   const lines = contents.split(RE_LINES)
@@ -56,7 +56,7 @@ export function parse (contents: string, options?: RCOptions): RC {
     config[key] = val
   }
 
-  return options?.flat ? config : flat.unflatten(config, { overwrite: true })
+  return options.flat ? config : flat.unflatten(config, { overwrite: true })
 }
 
 export function parseFile (path: string, options?: RCOptions): RC {
