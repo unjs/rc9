@@ -148,8 +148,8 @@ MIT. Made with 💖
 [npm-downloads-src]: https://img.shields.io/npm/dm/rc9?style=flat-square
 [npm-downloads-href]: https://npmjs.com/package/rc9
 
-[github-actions-src]: https://img.shields.io/github/workflow/status/unjs/rc9/ci/master?style=flat-square
+[github-actions-src]: https://img.shields.io/github/workflow/status/unjs/rc9/ci/main?style=flat-square
 [github-actions-href]: https://github.com/unjs/rc9/actions?query=workflow%3Aci
 
-[codecov-src]: https://img.shields.io/codecov/c/gh/unjs/rc9/master?style=flat-square
+[codecov-src]: https://img.shields.io/codecov/c/gh/unjs/rc9/main?style=flat-square
 [codecov-href]: https://codecov.io/gh/unjs/rc9
