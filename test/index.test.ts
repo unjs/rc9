@@ -1,8 +1,9 @@
+import { describe, test, expect } from 'vitest'
 import { write, read, readUser, parse, update, updateUser, writeUser } from '../src'
 
-jest.mock('os', () => ({
-  homedir: () => __dirname
-}))
+// jest.mock('os', () => ({
+//   homedir: () => __dirname
+// }))
 
 const config = {
   db: {
