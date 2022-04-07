@@ -92,7 +92,7 @@ export function write (config: RC, options?: RCOptions | string) {
 
 export function writeUser (config: RC, options?: RCOptions | string) {
   options = withDefaults(options)
-  options.dir = homedir()
+  options.dir = process.env.XDG_CONFIG_HOME || homedir()
   write(config, options)
 }
 
@@ -108,6 +108,6 @@ export function update (config: RC, options?: RCOptions | string): RC {
 
 export function updateUser (config: RC, options?: RCOptions | string): RC {
   options = withDefaults(options)
-  options.dir = homedir()
+  options.dir = process.env.XDG_CONFIG_HOME || homedir()
   return update(config, options)
 }
