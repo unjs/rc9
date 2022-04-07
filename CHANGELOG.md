@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.2.1](https://github.com/unjs/rc9/compare/v1.2.0...v1.2.1) (2022-04-07)
+
+
+### Bug Fixes
+
+* use `XDG_CONFIG_HOME` for `writeUser` and `updateUser` ([5c1f7a9](https://github.com/unjs/rc9/commit/5c1f7a9873302b9ae04bf2eb979a315caaa4ce96))
+
 ## [1.2.0](https://github.com/unjs/rc9/compare/v1.1.0...v1.2.0) (2020-11-25)
 
 
