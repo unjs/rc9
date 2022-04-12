@@ -26,7 +26,7 @@
   "dependencies": {
     "defu": "^6.0.0",
     "destr": "^1.1.1",
-    "flat": "^5.0.0"
+    "flat": "^5.0.2"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config-typescript": "latest",
@@ -37,8 +37,8 @@
     "eslint": "latest",
     "standard-version": "latest",
     "typescript": "latest",
-    "unbuild": "^0.7.2",
-    "vitest": "^0.9.0"
+    "unbuild": "^0.7.3",
+    "vitest": "^0.9.3"
   },
-  "packageManager": "pnpm@6.32.3"
+  "packageManager": "pnpm@6.32.6"
 }
