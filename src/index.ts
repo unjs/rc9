@@ -78,7 +78,7 @@ export function readUser (options?: RCOptions | string): RC {
 }
 
 export function serialize (config: RC): string {
-  return Object.entries(flat.flatten(config))
+  return Object.entries(flat.flatten<RC, RC>(config))
     .map(([key, val]) => `${key}=${typeof val === 'string' ? val : JSON.stringify(val)}`)
     .join('\n')
 }
