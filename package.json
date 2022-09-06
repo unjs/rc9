@@ -33,12 +33,12 @@
     "@types/flat": "latest",
     "@types/jest": "latest",
     "@types/node": "latest",
-    "c8": "^7.11.2",
+    "c8": "^7.11.3",
     "eslint": "latest",
     "standard-version": "latest",
     "typescript": "latest",
     "unbuild": "^0.7.4",
-    "vitest": "^0.9.4"
+    "vitest": "^0.16.0"
   },
-  "packageManager": "pnpm@6.32.10"
+  "packageManager": "pnpm@6.32.24"
 }
