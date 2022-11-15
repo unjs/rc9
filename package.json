@@ -1,6 +1,6 @@
 {
   "name": "rc9",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "Read/Write config couldn't be easier!",
   "repository": "unjs/rc9",
   "license": "MIT",
