@@ -30,7 +30,7 @@
   },
   "devDependencies": {
     "@types/flat": "^5.0.2",
-    "@types/node": "^18.11.16",
+    "@types/node": "^18.11.17",
     "@vitest/coverage-c8": "^0.25.8",
     "eslint": "^8.30.0",
     "eslint-config-unjs": "^0.0.3",
