@@ -2,6 +2,35 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## v2.0.1
+
+[compare changes](https://github.com/unjs/rc9/compare/v1.2.4...v2.0.1)
+
+
+### 🩹 Fixes
+
+  - Use named export from defu ([b9401d1](https://github.com/unjs/rc9/commit/b9401d1))
+  - Add type exports ([b64adaa](https://github.com/unjs/rc9/commit/b64adaa))
+
+### 💅 Refactors
+
+  - Update repository ([f76dd93](https://github.com/unjs/rc9/commit/f76dd93))
+
+### 🏡 Chore
+
+  - Update dependencies ([a9abe31](https://github.com/unjs/rc9/commit/a9abe31))
+  - Fix type ([5e02ecf](https://github.com/unjs/rc9/commit/5e02ecf))
+  - Update test scripts ([a31b8ab](https://github.com/unjs/rc9/commit/a31b8ab))
+  - Update tsconfig ([8e3b33e](https://github.com/unjs/rc9/commit/8e3b33e))
+  - **release:** 1.2.3 ([caaa52a](https://github.com/unjs/rc9/commit/caaa52a))
+  - **release:** 2.0.0 ([d993e87](https://github.com/unjs/rc9/commit/d993e87))
+  - **release:** 1.2.4 ([a24a252](https://github.com/unjs/rc9/commit/a24a252))
+  - Update repo ([a8c95c5](https://github.com/unjs/rc9/commit/a8c95c5))
+
+### ❤️  Contributors
+
+- Pooya Parsa <pooya@pi0.io>
+
 ## [2.0.0](https://github.com/unjs/rc9/compare/v1.2.3...v2.0.0) (2022-11-15)
 
 ### [1.2.3](https://github.com/unjs/rc9/compare/v1.2.2...v1.2.3) (2022-11-15)
