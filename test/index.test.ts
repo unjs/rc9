@@ -1,5 +1,13 @@
 import { describe, test, expect } from "vitest";
-import { write, read, readUser, parse, update, updateUser, writeUser } from "../src";
+import {
+  write,
+  read,
+  readUser,
+  parse,
+  update,
+  updateUser,
+  writeUser,
+} from "../src";
 
 // eslint-disable-next-line unicorn/prefer-module
 process.env.XDG_CONFIG_HOME = __dirname;
@@ -8,8 +16,8 @@ const config = {
   db: {
     username: "db username",
     password: "db pass",
-    enabled: false
-  }
+    enabled: false,
+  },
 };
 
 describe("rc", () => {
@@ -28,19 +36,21 @@ describe("rc", () => {
   });
 
   test("Update user config", () => {
-    updateUser({ "db.password": "\"123\"" });
+    updateUser({ "db.password": '"123"' });
     expect(readUser().db.password).toBe("123");
   });
 
   test("Parse ignore invalid lines", () => {
-    expect(parse(`
+    expect(
+      parse(`
       foo=bar
       __proto__=no
       # test
       bar = baz
-    `)).toMatchObject({
+    `)
+    ).toMatchObject({
       foo: "bar",
-      bar: "baz"
+      bar: "baz",
     });
   });
 
@@ -55,13 +65,15 @@ describe("rc", () => {
   });
 
   test("Parse indexless arrays", () => {
-    expect(parse(`
+    expect(
+      parse(`
       x.foo[]=A
       x.foo[]=B
-    `)).toMatchObject({
+    `)
+    ).toMatchObject({
       x: {
-        foo: ["A", "B"]
-      }
+        foo: ["A", "B"],
+      },
     });
   });
 });

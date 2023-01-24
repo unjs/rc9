@@ -8,35 +8,37 @@ import defu from "defu";
 const RE_KEY_VAL = /^\s*([^\s=]+)\s*=\s*(.*)?\s*$/;
 const RE_LINES = /\n|\r|\r\n/;
 
-type RC = Record<string, any>
+type RC = Record<string, any>;
 
 interface RCOptions {
-  name?: string,
-  dir?: string,
-  flat?: boolean
+  name?: string;
+  dir?: string;
+  flat?: boolean;
 }
 
 export const defaults: RCOptions = {
   name: ".conf",
   dir: process.cwd(),
-  flat: false
+  flat: false,
 };
 
-function withDefaults (options?: RCOptions | string): RCOptions {
+function withDefaults(options?: RCOptions | string): RCOptions {
   if (typeof options === "string") {
     options = { name: options };
   }
   return { ...defaults, ...options };
 }
 
-export function parse (contents: string, options: RCOptions = {}): RC {
+export function parse(contents: string, options: RCOptions = {}): RC {
   const config: RC = {};
 
   const lines = contents.split(RE_LINES);
 
   for (const line of lines) {
     const match = line.match(RE_KEY_VAL);
-    if (!match) { continue; }
+    if (!match) {
+      continue;
+    }
 
     // Key
     const key = match[1];
@@ -60,44 +62,47 @@ export function parse (contents: string, options: RCOptions = {}): RC {
   return options.flat ? config : flat.unflatten(config, { overwrite: true });
 }
 
-export function parseFile (path: string, options?: RCOptions): RC {
+export function parseFile(path: string, options?: RCOptions): RC {
   if (!existsSync(path)) {
     return {};
   }
   return parse(readFileSync(path, "utf8"), options);
 }
 
-export function read (options?: RCOptions| string): RC {
+export function read(options?: RCOptions | string): RC {
   options = withDefaults(options);
   return parseFile(resolve(options.dir!, options.name!), options);
 }
 
-export function readUser (options?: RCOptions | string): RC {
+export function readUser(options?: RCOptions | string): RC {
   options = withDefaults(options);
   options.dir = process.env.XDG_CONFIG_HOME || homedir();
   return read(options);
 }
 
-export function serialize (config: RC): string {
+export function serialize(config: RC): string {
   return Object.entries(flat.flatten<RC, RC>(config))
-    .map(([key, value]) => `${key}=${typeof value === "string" ? value : JSON.stringify(value)}`)
+    .map(
+      ([key, value]) =>
+        `${key}=${typeof value === "string" ? value : JSON.stringify(value)}`
+    )
     .join("\n");
 }
 
-export function write (config: RC, options?: RCOptions | string) {
+export function write(config: RC, options?: RCOptions | string) {
   options = withDefaults(options);
   writeFileSync(resolve(options.dir!, options.name!), serialize(config), {
-    encoding: "utf8"
+    encoding: "utf8",
   });
 }
 
-export function writeUser (config: RC, options?: RCOptions | string) {
+export function writeUser(config: RC, options?: RCOptions | string) {
   options = withDefaults(options);
   options.dir = process.env.XDG_CONFIG_HOME || homedir();
   write(config, options);
 }
 
-export function update (config: RC, options?: RCOptions | string): RC {
+export function update(config: RC, options?: RCOptions | string): RC {
   options = withDefaults(options);
   if (!options.flat) {
     config = flat.unflatten(config, { overwrite: true });
@@ -107,7 +112,7 @@ export function update (config: RC, options?: RCOptions | string): RC {
   return newConfig;
 }
 
-export function updateUser (config: RC, options?: RCOptions | string): RC {
+export function updateUser(config: RC, options?: RCOptions | string): RC {
   options = withDefaults(options);
   options.dir = process.env.XDG_CONFIG_HOME || homedir();
   return update(config, options);
