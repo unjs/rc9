@@ -29,7 +29,10 @@ function withDefaults(options?: RCOptions | string): RCOptions {
   return { ...defaults, ...options };
 }
 
-export function parse(contents: string, options: RCOptions = {}): RC {
+export function parse<T extends RC = RC>(
+  contents: string,
+  options: RCOptions = {}
+): T {
   const config: RC = {};
 
   const lines = contents.split(RE_LINES);
@@ -59,28 +62,33 @@ export function parse(contents: string, options: RCOptions = {}): RC {
     config[key] = value;
   }
 
-  return options.flat ? config : flat.unflatten(config, { overwrite: true });
+  return options.flat
+    ? (config as T)
+    : flat.unflatten(config, { overwrite: true });
 }
 
-export function parseFile(path: string, options?: RCOptions): RC {
+export function parseFile<T extends RC = RC>(
+  path: string,
+  options?: RCOptions
+): T {
   if (!existsSync(path)) {
-    return {};
+    return {} as T;
   }
   return parse(readFileSync(path, "utf8"), options);
 }
 
-export function read(options?: RCOptions | string): RC {
+export function read<T extends RC = RC>(options?: RCOptions | string): T {
   options = withDefaults(options);
   return parseFile(resolve(options.dir!, options.name!), options);
 }
 
-export function readUser(options?: RCOptions | string): RC {
+export function readUser<T extends RC = RC>(options?: RCOptions | string): T {
   options = withDefaults(options);
   options.dir = process.env.XDG_CONFIG_HOME || homedir();
   return read(options);
 }
 
-export function serialize(config: RC): string {
+export function serialize<T extends RC = RC>(config: T): string {
   return Object.entries(flat.flatten<RC, RC>(config))
     .map(
       ([key, value]) =>
@@ -89,30 +97,42 @@ export function serialize(config: RC): string {
     .join("\n");
 }
 
-export function write(config: RC, options?: RCOptions | string) {
+export function write<T extends RC = RC>(
+  config: T,
+  options?: RCOptions | string
+) {
   options = withDefaults(options);
   writeFileSync(resolve(options.dir!, options.name!), serialize(config), {
     encoding: "utf8",
   });
 }
 
-export function writeUser(config: RC, options?: RCOptions | string) {
+export function writeUser<T extends RC = RC>(
+  config: T,
+  options?: RCOptions | string
+) {
   options = withDefaults(options);
   options.dir = process.env.XDG_CONFIG_HOME || homedir();
   write(config, options);
 }
 
-export function update(config: RC, options?: RCOptions | string): RC {
+export function update<T extends RC = RC>(
+  config: T,
+  options?: RCOptions | string
+): T {
   options = withDefaults(options);
   if (!options.flat) {
     config = flat.unflatten(config, { overwrite: true });
   }
   const newConfig = defu(config, read(options));
   write(newConfig, options);
-  return newConfig;
+  return newConfig as T;
 }
 
-export function updateUser(config: RC, options?: RCOptions | string): RC {
+export function updateUser<T extends RC = RC>(
+  config: T,
+  options?: RCOptions | string
+): T {
   options = withDefaults(options);
   options.dir = process.env.XDG_CONFIG_HOME || homedir();
   return update(config, options);
