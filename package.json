@@ -21,7 +21,7 @@
     "build": "unbuild",
     "dev": "vitest",
     "lint": "eslint --ext .ts . && prettier -c src test",
-    "release": "pnpm test && pnpm build && changelogen --release && pnpm publish && git push --follow-tags",
+    "release": "pnpm test && pnpm build && changelogen --release --push && npm publish",
     "test": "pnpm lint && vitest run --coverage"
   },
   "dependencies": {
