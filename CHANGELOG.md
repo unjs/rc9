@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## v2.1.0
+
+[compare changes](https://github.com/unjs/rc9/compare/v2.0.1...v2.1.0)
+
+
+### 🚀 Enhancements
+
+  - Support type generics ([44bac23](https://github.com/unjs/rc9/commit/44bac23))
+
+### 🏡 Chore
+
+  - Update dev dependencies ([918e4f7](https://github.com/unjs/rc9/commit/918e4f7))
+  - Update release script ([87ee206](https://github.com/unjs/rc9/commit/87ee206))
+
+### ❤️  Contributors
+
+- Pooya Parsa ([@pi0](http://github.com/pi0))
+
 ## v2.0.1
 
 [compare changes](https://github.com/unjs/rc9/compare/v1.2.4...v2.0.1)
