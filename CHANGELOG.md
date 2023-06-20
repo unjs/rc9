@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## v2.1.1
+
+[compare changes](https://github.com/unjs/rc9/compare/v2.1.0...v2.1.1)
+
+
+### 🏡 Chore
+
+  - Update badge link ([#76](https://github.com/unjs/rc9/pull/76))
+  - Update dev dependencies ([88f6b2a](https://github.com/unjs/rc9/commit/88f6b2a))
+  - Update destr to v2 ([7c846b6](https://github.com/unjs/rc9/commit/7c846b6))
+
+### ❤️  Contributors
+
+- Pooya Parsa ([@pi0](http://github.com/pi0))
+- Renato Lacerda <renato.ac.lacerda@gmail.com>
+
 ## v2.1.0
 
 [compare changes](https://github.com/unjs/rc9/compare/v2.0.1...v2.1.0)
