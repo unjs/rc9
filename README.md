@@ -135,7 +135,7 @@ interface RCOptions {
 
 ### Why RC9?
 
-Be the first one to guess 🐇 <!-- Hint: do research about rc files history -->
+Be the first one to guess 🐇 <!-- Hint: do research about rc files history --> <!-- Is it "run commands" and 9 because there is 9 functions available in this repo? -->
 
 ## License
 
