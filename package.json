@@ -31,13 +31,13 @@
   },
   "devDependencies": {
     "@types/flat": "^5.0.5",
-    "@types/node": "^20.11.24",
+    "@types/node": "^20.11.25",
     "@vitest/coverage-v8": "^0.34.6",
     "changelogen": "^0.5.5",
     "eslint": "^8.57.0",
     "eslint-config-unjs": "^0.2.1",
     "prettier": "^2.8.8",
-    "typescript": "^5.3.3",
+    "typescript": "^5.4.2",
     "unbuild": "^2.0.0",
     "vitest": "^0.34.6"
   },
