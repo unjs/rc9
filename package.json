@@ -27,7 +27,7 @@
   "dependencies": {
     "defu": "^6.1.4",
     "destr": "^2.0.3",
-    "flat": "^5.0.2"
+    "flat": "^6.0.1"
   },
   "devDependencies": {
     "@types/flat": "^5.0.5",
