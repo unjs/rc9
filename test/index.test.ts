@@ -17,6 +17,7 @@ const config = {
     username: "db username",
     password: "db pass",
     enabled: false,
+    empty: "",
   },
 };
 

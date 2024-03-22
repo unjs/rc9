@@ -50,7 +50,7 @@ export function parse<T extends RC = RC>(
       continue;
     }
 
-    const value = destr(match[2].trim() /* val */);
+    const value = destr((match[2] || "").trim() /* val */);
 
     if (key.endsWith("[]")) {
       const nkey = key.slice(0, Math.max(0, key.length - 2));
