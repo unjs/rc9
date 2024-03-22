@@ -40,6 +40,11 @@ describe("rc", () => {
     expect(readUser().db.password).toBe("123");
   });
 
+  test("Update user config to empty string", () => {
+    updateUser({ "db.password": "" });
+    expect(readUser().db.password).toBe("");
+  });
+
   test("Parse ignore invalid lines", () => {
     expect(
       parse(`
