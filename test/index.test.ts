@@ -52,6 +52,7 @@ describe("rc", () => {
       __proto__=no
       # test
       bar = baz
+      empty =
     `),
     ).toMatchObject({
       foo: "bar",
