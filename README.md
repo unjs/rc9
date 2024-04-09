@@ -11,27 +11,56 @@
 
 Install using npm or yarn:
 
-```bash
-npm i rc9
-# or
+<!-- automd:pm-i -->
+
+```sh
+# ✨ Auto-detect
+npx nypm install rc9
+
+# npm
+npm install rc9
+
+# yarn
 yarn add rc9
+
+# pnpm
+pnpm install rc9
+
+# bun
+bun install rc9
 ```
+
+<!-- /automd -->
 
 Import into your Node.js project:
 
-```js
-// CommonJS
-const { read, write, update } = require('rc9')
+<!-- automd:jsimport src="./src/index.ts"-->
 
-// ESM
-import { read, write, update } from 'rc9'
+**ESM** (Node.js, Bun)
+
+```js
+import {
+  defaults,
+  parse,
+  parseFile,
+  read,
+  readUser,
+  serialize,
+  write,
+  writeUser,
+  update,
+  updateUser,
+} from "rc9";
 ```
+
+<!-- /automd -->
+
 
 ## Usage
 
 `.conf`:
 
-```ts
+```ini
 db.username=db username
 db.password=db pass
 db.enabled=true
@@ -125,7 +154,7 @@ interface RCOptions {
 
 **Defaults:**
 
-```ts
+```ini
 {
   name: '.conf',
   dir: process.cwd(),
@@ -139,17 +168,13 @@ Be the first one to guess 🐇 <!-- Hint: do research about rc files history -->
 
 ## License
 
-MIT. Made with 💖
+<!-- automd:contributors license=MIT -->
 
-<!-- Badges -->
-[npm-version-src]: https://img.shields.io/npm/v/rc9?style=flat-square
-[npm-version-href]: https://npmjs.com/package/rc9
+Published under the [MIT](https://github.com/unjs/rc9/blob/main/LICENSE) license.
+Made by [community](https://github.com/unjs/rc9/graphs/contributors) 💛
+<br><br>
+<a href="https://github.com/unjs/rc9/graphs/contributors">
+<img src="https://contrib.rocks/image?repo=unjs/rc9" />
+</a>
 
-[npm-downloads-src]: https://img.shields.io/npm/dm/rc9?style=flat-square
-[npm-downloads-href]: https://npmjs.com/package/rc9
-
-[github-actions-src]: https://img.shields.io/github/actions/workflow/status/unjs/rc9/ci.yml?branch=main&style=flat-square
-[github-actions-href]: https://github.com/unjs/rc9/actions?query=workflow%3Aci
-
-[codecov-src]: https://img.shields.io/codecov/c/gh/unjs/rc9/main?style=flat-square
-[codecov-href]: https://codecov.io/gh/unjs/rc9
+<!-- /automd -->

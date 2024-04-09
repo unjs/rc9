@@ -31,7 +31,7 @@ function withDefaults(options?: RCOptions | string): RCOptions {
 
 export function parse<T extends RC = RC>(
   contents: string,
-  options: RCOptions = {}
+  options: RCOptions = {},
 ): T {
   const config: RC = {};
 
@@ -69,7 +69,7 @@ export function parse<T extends RC = RC>(
 
 export function parseFile<T extends RC = RC>(
   path: string,
-  options?: RCOptions
+  options?: RCOptions,
 ): T {
   if (!existsSync(path)) {
     return {} as T;
@@ -96,7 +96,7 @@ export function serialize<T extends RC = RC>(config: T): string {
 
 export function write<T extends RC = RC>(
   config: T,
-  options?: RCOptions | string
+  options?: RCOptions | string,
 ) {
   options = withDefaults(options);
   writeFileSync(resolve(options.dir!, options.name!), serialize(config), {
@@ -106,7 +106,7 @@ export function write<T extends RC = RC>(
 
 export function writeUser<T extends RC = RC>(
   config: T,
-  options?: RCOptions | string
+  options?: RCOptions | string,
 ) {
   options = withDefaults(options);
   options.dir = process.env.XDG_CONFIG_HOME || homedir();
@@ -115,7 +115,7 @@ export function writeUser<T extends RC = RC>(
 
 export function update<T extends RC = RC>(
   config: T,
-  options?: RCOptions | string
+  options?: RCOptions | string,
 ): T {
   options = withDefaults(options);
   if (!options.flat) {
@@ -128,7 +128,7 @@ export function update<T extends RC = RC>(
 
 export function updateUser<T extends RC = RC>(
   config: T,
-  options?: RCOptions | string
+  options?: RCOptions | string,
 ): T {
   options = withDefaults(options);
   options.dir = process.env.XDG_CONFIG_HOME || homedir();
