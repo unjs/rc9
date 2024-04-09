@@ -13,7 +13,7 @@ Read/Write RC configs couldn't be easier!
 
 ## Install
 
-Install using npm or yarn:
+Install dependencies:
 
 <!-- automd:pm-i -->
 
@@ -36,9 +36,9 @@ bun install rc9
 
 <!-- /automd -->
 
-Import into your Node.js project:
+Import utils:
 
-<!-- automd:jsimport src="./src/index.ts"-->
+<!-- automd:jsimport cjs src="./src/index.ts"-->
 
 **ESM** (Node.js, Bun)
 
@@ -55,6 +55,23 @@ import {
   update,
   updateUser,
 } from "rc9";
+```
+
+**CommonJS** (Legacy Node.js)
+
+```js
+const {
+  defaults,
+  parse,
+  parseFile,
+  read,
+  readUser,
+  serialize,
+  write,
+  writeUser,
+  update,
+  updateUser,
+} = require("rc9");
 ```
 
 <!-- /automd -->
