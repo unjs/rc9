@@ -90,10 +90,7 @@ export function readUser<T extends RC = RC>(options?: RCOptions | string): T {
 
 export function serialize<T extends RC = RC>(config: T): string {
   return Object.entries(flat.flatten<RC, RC>(config))
-    .map(
-      ([key, value]) =>
-        `${key}=${typeof value === "string" ? value : JSON.stringify(value)}`
-    )
+    .map(([key, value]) => `${key}=${JSON.stringify(value)}`)
     .join("\n");
 }
 
