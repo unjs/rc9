@@ -2,7 +2,7 @@ import { existsSync, readFileSync, writeFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { homedir } from "node:os";
 import destr from "destr";
-import flat from "flat";
+import { flatten, unflatten } from "flat";
 import { defu } from "defu";
 
 const RE_KEY_VAL = /^\s*([^\s=]+)\s*=\s*(.*)?\s*$/;
@@ -62,9 +62,7 @@ export function parse<T extends RC = RC>(
     config[key] = value;
   }
 
-  return options.flat
-    ? (config as T)
-    : flat.unflatten(config, { overwrite: true });
+  return options.flat ? (config as T) : unflatten(config, { overwrite: true });
 }
 
 export function parseFile<T extends RC = RC>(
@@ -89,7 +87,7 @@ export function readUser<T extends RC = RC>(options?: RCOptions | string): T {
 }
 
 export function serialize<T extends RC = RC>(config: T): string {
-  return Object.entries(flat.flatten<RC, RC>(config))
+  return Object.entries(flatten<RC, RC>(config))
     .map(([key, value]) => `${key}=${JSON.stringify(value)}`)
     .join("\n");
 }
@@ -119,7 +117,7 @@ export function update<T extends RC = RC>(
 ): T {
   options = withDefaults(options);
   if (!options.flat) {
-    config = flat.unflatten(config, { overwrite: true });
+    config = unflatten(config, { overwrite: true });
   }
   const newConfig = defu(config, read(options));
   write(newConfig, options);

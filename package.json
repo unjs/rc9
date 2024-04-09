@@ -27,17 +27,16 @@
   },
   "dependencies": {
     "defu": "^6.1.4",
-    "destr": "^2.0.3",
-    "flat": "^5.0.2"
+    "destr": "^2.0.3"
   },
   "devDependencies": {
-    "@types/flat": "^5.0.5",
     "@types/node": "^20.12.6",
     "@vitest/coverage-v8": "^1.4.0",
     "automd": "^0.3.7",
     "changelogen": "^0.5.5",
     "eslint": "^9.0.0",
     "eslint-config-unjs": "^0.3.0-rc.4",
+    "flat": "^6.0.1",
     "prettier": "^3.2.5",
     "typescript": "^5.4.4",
     "unbuild": "^2.0.0",
