@@ -2,6 +2,33 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## v2.1.2
+
+[compare changes](https://github.com/unjs/rc9/compare/v2.1.1...v2.1.2)
+
+### 🩹 Fixes
+
+- Stringify strings to avoid being cast to numbers ([#123](https://github.com/unjs/rc9/pull/123))
+- **parse:** Handle empty values ([#86](https://github.com/unjs/rc9/pull/86))
+
+### 🏡 Chore
+
+- Update repo ([86d3590](https://github.com/unjs/rc9/commit/86d3590))
+- Update readme ([#113](https://github.com/unjs/rc9/pull/113))
+- Try tea.yaml ([701f71a](https://github.com/unjs/rc9/commit/701f71a))
+- Upgrade `flat` to v6 and inline ([38cebbb](https://github.com/unjs/rc9/commit/38cebbb))
+- Update badges ([14618f0](https://github.com/unjs/rc9/commit/14618f0))
+- Update readme ([4766224](https://github.com/unjs/rc9/commit/4766224))
+- Update lockfile ([fcb4059](https://github.com/unjs/rc9/commit/fcb4059))
+- Lint ([07df4c9](https://github.com/unjs/rc9/commit/07df4c9))
+
+### ❤️ Contributors
+
+- Pooya Parsa ([@pi0](http://github.com/pi0))
+- Huel129 ([@vue-multiple](http://github.com/vue-multiple))
+- Nozomu Ikuta ([@NozomuIkuta](http://github.com/NozomuIkuta))
+- Daniel Roe ([@danielroe](http://github.com/danielroe))
+
 ## v2.1.1
 
 [compare changes](https://github.com/unjs/rc9/compare/v2.1.0...v2.1.1)
