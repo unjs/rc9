@@ -1,11 +1,15 @@
 # RC9
 
-> Read/Write config couldn't be easier!
+<!-- automd:badges color=yellow codecov bundlejs -->
 
-[![npm version][npm-version-src]][npm-version-href]
-[![npm downloads][npm-downloads-src]][npm-downloads-href]
-[![Github Actions][github-actions-src]][github-actions-href]
-[![Codecov][codecov-src]][codecov-href]
+[![npm version](https://img.shields.io/npm/v/rc9?color=yellow)](https://npmjs.com/package/rc9)
+[![npm downloads](https://img.shields.io/npm/dm/rc9?color=yellow)](https://npmjs.com/package/rc9)
+[![bundle size](https://img.shields.io/bundlejs/size/rc9?color=yellow)](https://bundlejs.com/?q=rc9)
+[![codecov](https://img.shields.io/codecov/c/gh/unjs/rc9?color=yellow)](https://codecov.io/gh/unjs/rc9)
+
+<!-- /automd -->
+
+Read/Write RC configs couldn't be easier!
 
 ## Install
 
