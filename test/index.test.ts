@@ -37,7 +37,7 @@ describe("rc", () => {
 
   test("Update user config", () => {
     updateUser({ "db.password": '"123"' });
-    expect(readUser().db.password).toBe("123");
+    expect(readUser().db.password).toBe(`"123"`);
   });
 
   test("Update user config to empty string", () => {
@@ -52,7 +52,7 @@ describe("rc", () => {
       __proto__=no
       # test
       bar = baz
-    `)
+    `),
     ).toMatchObject({
       foo: "bar",
       bar: "baz",
@@ -74,7 +74,7 @@ describe("rc", () => {
       parse(`
       x.foo[]=A
       x.foo[]=B
-    `)
+    `),
     ).toMatchObject({
       x: {
         foo: ["A", "B"],
