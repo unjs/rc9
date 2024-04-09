@@ -11,9 +11,6 @@ dependencies:
   destr:
     specifier: ^2.0.3
     version: 2.0.3
-  flat:
-    specifier: ^6.0.1
-    version: 6.0.1
 
 devDependencies:
   '@types/node':
@@ -34,6 +31,9 @@ devDependencies:
   eslint-config-unjs:
     specifier: ^0.3.0-rc.4
     version: 0.3.0-rc.4(eslint@9.0.0)(typescript@5.4.4)
+  flat:
+    specifier: ^6.0.1
+    version: 6.0.1
   prettier:
     specifier: ^3.2.5
     version: 3.2.5
@@ -2439,7 +2439,7 @@ packages:
     resolution: {integrity: sha512-/3FfIa8mbrg3xE7+wAhWeV+bd7L2Mof+xtZb5dRDKZ+wDvYJK4WDYeIOuOhre5Yv5aQObZrlbRmk3RTSiuQBtw==}
     engines: {node: '>=18'}
     hasBin: true
-    dev: false
+    dev: true
 
   /flatted@3.3.1:
     resolution: {integrity: sha512-X8cqMLLie7KsNUDSdzeN8FYK9rEt4Dt67OsG/DNGnYTSDBG4uFAJFBnUeiV+zCVAvwFy56IjM9sH51jVaEhNxw==}
