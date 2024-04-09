@@ -69,7 +69,7 @@ db.enabled=true
 **Update config:**
 
 ```ts
-update({ 'db.enabled': false }) // or update(..., '.conf')
+update({ 'db.enabled': false }) // or update(..., { name: '.conf' })
 ```
 
 Push to an array:
