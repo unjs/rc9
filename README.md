@@ -61,15 +61,15 @@ import {
 `.conf`:
 
 ```ini
-db.username=db username
-db.password=db pass
+db.username=username
+db.password=multi word password
 db.enabled=true
 ```
 
 **Update config:**
 
 ```ts
-update({ 'db.enabled': true }) // or update(..., { name: '.conf' })
+update({ 'db.enabled': false }) // or update(..., { name: '.conf' })
 ```
 
 Push to an array:
@@ -85,8 +85,8 @@ const config = read() // or read('.conf')
 
 // config = {
 //   db: {
-//     username: 'db username',
-//     password: 'db pass',
+//     username: 'username',
+//     password: 'multi word password',
 //     enabled: true
 //   }
 // }
