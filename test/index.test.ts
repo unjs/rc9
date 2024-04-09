@@ -9,7 +9,6 @@ import {
   writeUser,
 } from "../src";
 
-// eslint-disable-next-line unicorn/prefer-module
 process.env.XDG_CONFIG_HOME = __dirname;
 
 const config = {

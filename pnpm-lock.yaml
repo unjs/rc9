@@ -29,8 +29,8 @@ devDependencies:
     specifier: ^9.0.0
     version: 9.0.0
   eslint-config-unjs:
-    specifier: ^0.3.0-rc.4
-    version: 0.3.0-rc.4(eslint@9.0.0)(typescript@5.4.4)
+    specifier: ^0.3.0-rc.5
+    version: 0.3.0-rc.5(eslint@9.0.0)(typescript@5.4.4)
   flat:
     specifier: ^6.0.1
     version: 6.0.1
@@ -2145,8 +2145,8 @@ packages:
     engines: {node: '>=10'}
     dev: true
 
-  /eslint-config-unjs@0.3.0-rc.4(eslint@9.0.0)(typescript@5.4.4):
-    resolution: {integrity: sha512-VDQ8pSNrpTmH3omyjCac609eN+KEtxtlpvjvjbv/kIkQF49f9ipO9iSq8QmiAHy3bvG9EwjP79rVmJMP8ggJYg==}
+  /eslint-config-unjs@0.3.0-rc.5(eslint@9.0.0)(typescript@5.4.4):
+    resolution: {integrity: sha512-dQ4tBmqvC3UxbM78sZUygE9wS7BX1c/4qGz36OOfl58Q8I7VJhWXgNwQHkj3bkgGs8p/a3Nbqd03j0J30ZtWWg==}
     peerDependencies:
       eslint: '*'
       typescript: '*'
