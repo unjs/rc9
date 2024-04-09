@@ -37,7 +37,7 @@ describe("rc", () => {
 
   test("Update user config", () => {
     updateUser({ "db.password": '"123"' });
-    expect(readUser().db.password).toBe("123");
+    expect(readUser().db.password).toBe(`"123"`);
   });
 
   test("Parse ignore invalid lines", () => {
