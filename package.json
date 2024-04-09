@@ -34,7 +34,7 @@
     "@types/node": "^20.11.30",
     "@vitest/coverage-v8": "^1.4.0",
     "changelogen": "^0.5.5",
-    "eslint": "^8.57.0",
+    "eslint": "^9.0.0",
     "eslint-config-unjs": "^0.2.1",
     "prettier": "^2.8.8",
     "typescript": "^5.4.3",
