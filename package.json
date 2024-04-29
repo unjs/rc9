@@ -2,7 +2,10 @@
   "name": "rc9",
   "version": "2.1.2",
   "description": "Read/Write config couldn't be easier!",
-  "repository": "unjs/rc9",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/unjs/rc9.git"
+  },
   "license": "MIT",
   "sideEffects": false,
   "exports": {
