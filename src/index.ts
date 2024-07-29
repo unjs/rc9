@@ -8,9 +8,9 @@ import { defu } from "defu";
 const RE_KEY_VAL = /^\s*([^\s=]+)\s*=\s*(.*)?\s*$/;
 const RE_LINES = /\n|\r|\r\n/;
 
-type RC = Record<string, any>;
+export type RC = Record<string, any>;
 
-interface RCOptions {
+export interface RCOptions {
   name?: string;
   dir?: string;
   flat?: boolean;
