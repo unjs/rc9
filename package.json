@@ -30,14 +30,14 @@
     "destr": "^2.0.3"
   },
   "devDependencies": {
-    "@types/node": "^20.17.8",
+    "@types/node": "^20.17.9",
     "@vitest/coverage-v8": "^1.6.0",
     "automd": "^0.3.12",
     "changelogen": "^0.5.7",
-    "eslint": "^9.15.0",
+    "eslint": "^9.16.0",
     "eslint-config-unjs": "^0.4.2",
     "flat": "^6.0.1",
-    "prettier": "^3.4.1",
+    "prettier": "^3.4.2",
     "typescript": "^5.7.2",
     "unbuild": "^2.0.0",
     "vitest": "^1.6.0"
