@@ -39,7 +39,7 @@
     "flat": "^6.0.1",
     "prettier": "^3.4.2",
     "typescript": "^5.7.2",
-    "unbuild": "^2.0.0",
+    "unbuild": "^3.2.0",
     "vitest": "^1.6.0"
   },
   "packageManager": "pnpm@8.15.9"
