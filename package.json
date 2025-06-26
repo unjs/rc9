@@ -27,18 +27,18 @@
   },
   "dependencies": {
     "defu": "^6.1.4",
-    "destr": "^2.0.3"
+    "destr": "^2.0.5"
   },
   "devDependencies": {
-    "@types/node": "^20.17.27",
+    "@types/node": "^20.19.1",
     "@vitest/coverage-v8": "^1.6.1",
     "automd": "^0.4.0",
     "changelogen": "^0.6.1",
-    "eslint": "^9.23.0",
-    "eslint-config-unjs": "^0.4.2",
+    "eslint": "^9.29.0",
+    "eslint-config-unjs": "^0.5.0",
     "flat": "^6.0.1",
-    "prettier": "^3.5.3",
-    "typescript": "^5.8.2",
+    "prettier": "^3.6.1",
+    "typescript": "^5.8.3",
     "unbuild": "^2.0.0",
     "vitest": "^1.6.1"
   },
