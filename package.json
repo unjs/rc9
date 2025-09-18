@@ -30,7 +30,7 @@
     "destr": "^2.0.5"
   },
   "devDependencies": {
-    "@types/node": "^20.19.14",
+    "@types/node": "^22.18.6",
     "@vitest/coverage-v8": "^1.6.1",
     "automd": "^0.4.0",
     "changelogen": "^0.6.2",
