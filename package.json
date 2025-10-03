@@ -30,15 +30,15 @@
     "destr": "^2.0.5"
   },
   "devDependencies": {
-    "@types/node": "^20.19.14",
+    "@types/node": "^20.19.19",
     "@vitest/coverage-v8": "^1.6.1",
-    "automd": "^0.4.0",
+    "automd": "^0.4.2",
     "changelogen": "^0.6.2",
-    "eslint": "^9.35.0",
+    "eslint": "^9.37.0",
     "eslint-config-unjs": "^0.5.0",
     "flat": "^6.0.1",
     "prettier": "^3.6.2",
-    "typescript": "^5.9.2",
+    "typescript": "^5.9.3",
     "unbuild": "^2.0.0",
     "vitest": "^1.6.1"
   },
