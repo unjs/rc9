@@ -31,7 +31,7 @@
   },
   "devDependencies": {
     "@types/node": "^20.19.25",
-    "@vitest/coverage-v8": "^1.6.1",
+    "@vitest/coverage-v8": "^4.0.18",
     "automd": "^0.4.2",
     "changelogen": "^0.6.2",
     "eslint": "^9.39.1",
@@ -40,7 +40,7 @@
     "prettier": "^3.6.2",
     "typescript": "^5.9.3",
     "unbuild": "^2.0.0",
-    "vitest": "^1.6.1"
+    "vitest": "^4.0.18"
   },
   "packageManager": "pnpm@8.15.9"
 }
