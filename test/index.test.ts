@@ -7,7 +7,7 @@ import {
   update,
   updateUser,
   writeUser,
-} from "../src";
+} from "../src/index.ts";
 
 process.env.XDG_CONFIG_HOME = __dirname;
 

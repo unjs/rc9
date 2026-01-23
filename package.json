@@ -5,6 +5,7 @@
   "repository": "unjs/rc9",
   "license": "MIT",
   "sideEffects": false,
+  "type": "module",
   "exports": {
     ".": "./dist/index.mjs"
   },
@@ -19,7 +20,8 @@
     "lint": "eslint . && prettier -c src test",
     "lint:fix": "eslint . --fix && prettier -w src test",
     "release": "pnpm test && pnpm build && changelogen --release --push && npm publish",
-    "test": "pnpm lint && vitest run --coverage"
+    "test": "pnpm lint && vitest run --coverage",
+    "test:types": "tsgo --noEmit"
   },
   "dependencies": {
     "defu": "^6.1.4",
@@ -27,6 +29,7 @@
   },
   "devDependencies": {
     "@types/node": "^25.0.10",
+    "@typescript/native-preview": "7.0.0-dev.20260122.4",
     "@vitest/coverage-v8": "^4.0.18",
     "automd": "^0.4.2",
     "changelogen": "^0.6.2",
@@ -35,7 +38,6 @@
     "flat": "^6.0.1",
     "obuild": "^0.4.19",
     "prettier": "^3.8.1",
-    "typescript": "^5.9.3",
     "vitest": "^4.0.18"
   },
   "packageManager": "pnpm@10.28.1"
