@@ -8,9 +8,9 @@ import { defu } from "defu";
 const RE_KEY_VAL = /^\s*([^\s=]+)\s*=\s*(.*)?\s*$/;
 const RE_LINES = /\n|\r|\r\n/;
 
-type RC = Record<string, any>;
+export type RC = Record<string, any>;
 
-interface RCOptions {
+export interface RCOptions {
   /**
    * The name of the configuration file.
    * @optional
@@ -46,10 +46,7 @@ function withDefaults(options?: RCOptions | string): RCOptions {
   return { ...defaults, ...options };
 }
 
-export function parse<T extends RC = RC>(
-  contents: string,
-  options: RCOptions = {},
-): T {
+export function parse<T extends RC = RC>(contents: string, options: RCOptions = {}): T {
   const config: RC = {};
 
   const lines = contents.split(RE_LINES);
