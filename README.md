@@ -76,7 +76,6 @@ const {
 
 <!-- /automd -->
 
-
 ## Usage
 
 `.conf`:
@@ -90,19 +89,19 @@ db.enabled=true
 **Update config:**
 
 ```ts
-update({ 'db.enabled': false }) // or update(..., { name: '.conf' })
+update({ "db.enabled": false }); // or update(..., { name: '.conf' })
 ```
 
 Push to an array:
 
 ```ts
-update({ 'modules[]': 'test' })
+update({ "modules[]": "test" });
 ```
 
 **Read/Write config:**
 
 ```ts
-const config = read() // or read('.conf')
+const config = read(); // or read('.conf')
 
 // config = {
 //   db: {
@@ -112,8 +111,8 @@ const config = read() // or read('.conf')
 //   }
 // }
 
-config.enabled = false
-write(config) // or write(config, '.conf')
+config.enabled = false;
+write(config); // or write(config, '.conf')
 ```
 
 **User Config:**
@@ -123,9 +122,9 @@ It is common to keep config in user home directory (MacOS: `/Users/{name}`, Linu
 you can use `readUser`/`writeuser`/`updateUser` shortcuts to quickly do this:
 
 ```js
-writeUser({ token: 123 }, '.zoorc') // Will be saved in {home}/.zoorc
+writeUser({ token: 123 }, ".zoorc"); // Will be saved in {home}/.zoorc
 
-const conf = readUser('.zoorc') // { token: 123 }
+const conf = readUser(".zoorc"); // { token: 123 }
 ```
 
 ## Unflatten
@@ -151,8 +150,8 @@ So reading `count=123` results `{ count: 123 }` (instead of `{ count: "123" }`) 
 
 ```ts
 const defaults: RCOptions;
-function parse(contents: string, options?: RCOptions): RC
-function parseFile(path: string, options?: RCOptions): RC
+function parse(contents: string, options?: RCOptions): RC;
+function parseFile(path: string, options?: RCOptions): RC;
 function read(options?: RCOptions | string): RC;
 function readUser(options?: RCOptions | string): RC;
 function serialize(config: RC): string;
@@ -167,9 +166,9 @@ function updateUser(config: RC, options?: RCOptions | string): RC;
 ```ts
 type RC = Record<string, any>;
 interface RCOptions {
-    name?: string;
-    dir?: string;
-    flat?: boolean;
+  name?: string;
+  dir?: string;
+  flat?: boolean;
 }
 ```
 
