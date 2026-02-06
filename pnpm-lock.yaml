@@ -35,7 +35,7 @@ importers:
         version: 6.0.1
       obuild:
         specifier: ^0.4.25
-        version: 0.4.25(@typescript/native-preview@7.0.0-dev.20260206.1)(magicast@0.5.2)(picomatch@4.0.3)(rollup@4.57.1)(typescript@5.9.3)
+        version: 0.4.26(@typescript/native-preview@7.0.0-dev.20260206.1)(magicast@0.5.2)(picomatch@4.0.3)(rollup@4.57.1)
       oxfmt:
         specifier: ^0.28.0
         version: 0.28.0
@@ -837,8 +837,8 @@ packages:
   confbox@0.1.8:
     resolution: {integrity: sha512-RMtmw0iFkeR4YV+fUOSucriAQNb9g8zFR52MWCtl+cCZOFRNL6zeB395vPzFhEjjn4fMxXudmELnl/KF/WrK6w==}
 
-  confbox@0.2.3:
-    resolution: {integrity: sha512-GnuRBl/Zn8Xb0+0oYmEd0N1roYIjiQfOm2ao0P22fklcuSzaKqDBE8vC4yRYpU4krZHtloveFsi/S3agpmZxpA==}
+  confbox@0.2.4:
+    resolution: {integrity: sha512-ysOGlgTFbN2/Y6Cg3Iye8YKulHw+R2fNXHrgSmXISQdMnomY6eNDprVdW9R5xBguEqI954+S6709UyiO7B+6OQ==}
 
   consola@3.4.2:
     resolution: {integrity: sha512-5IKcdX0nnYavi6G7TtOhwkYzyjfJlatbjMjuLSfE2kYT5pMDOilZ4OvMhi637CcDICTmz3wARPoyhqyX1Y+XvA==}
@@ -1041,8 +1041,8 @@ packages:
   obug@2.1.1:
     resolution: {integrity: sha512-uTqF9MuPraAQ+IsnPf366RG4cP9RtUi7MLO1N3KEc+wb0a6yKpeL0lmk2IB1jY5KHPAlTc6T/JRdC/YqxHNwkQ==}
 
-  obuild@0.4.25:
-    resolution: {integrity: sha512-JscU6pKujFSgCHhO2F7qHpQfo3X8ppbng35U9DBcToNdmK0cfm2VCn1aGPJ4zrMn6w4mCmjkLDYj9EGrsyMlRw==}
+  obuild@0.4.26:
+    resolution: {integrity: sha512-G7CNu2hhBI/9j7Xvp+rVtwrpXoTBRp39Rw9T42Ntx0nxGv9+vEjIgOvAvwnt7dMaBWcQJmjZrwv512DKkazbew==}
     hasBin: true
 
   ofetch@1.5.1:
@@ -1217,11 +1217,6 @@ packages:
 
   tslib@2.8.1:
     resolution: {integrity: sha512-oJFu94HQb+KVduSUQL7wnpmqnfmLsOA/nAh6b6EH0wCEoK0/mPeXU6c3wKDV83MkOuHPRHtSXKKU99IBazS/2w==}
-
-  typescript@5.9.3:
-    resolution: {integrity: sha512-jl1vZzPDinLr9eUt3J/t7V6FgNEw9QjvBPdysz9KfQDD41fQrC2Y4vKQdiaUpFT4bXlb1RHhLpp8wtm6M5TgSw==}
-    engines: {node: '>=14.17'}
-    hasBin: true
 
   ufo@1.6.3:
     resolution: {integrity: sha512-yDJTmhydvl5lJzBmy/hyOAA0d+aqCBuwl818haVdYCRrWV84o7YyeVm4QlVHStqNrrJSTb6jKuFAVqAFsr+K3Q==}
@@ -1855,7 +1850,7 @@ snapshots:
   c12@3.3.3(magicast@0.5.2):
     dependencies:
       chokidar: 5.0.0
-      confbox: 0.2.3
+      confbox: 0.2.4
       defu: 6.1.4
       dotenv: 17.2.4
       exsolve: 1.0.8
@@ -1874,7 +1869,7 @@ snapshots:
   changelogen@0.6.2(magicast@0.5.2):
     dependencies:
       c12: 3.3.3(magicast@0.5.2)
-      confbox: 0.2.3
+      confbox: 0.2.4
       consola: 3.4.2
       convert-gitmoji: 0.1.5
       mri: 1.2.0
@@ -1903,7 +1898,7 @@ snapshots:
 
   confbox@0.1.8: {}
 
-  confbox@0.2.3: {}
+  confbox@0.2.4: {}
 
   consola@3.4.2: {}
 
@@ -2087,7 +2082,7 @@ snapshots:
 
   obug@2.1.1: {}
 
-  obuild@0.4.25(@typescript/native-preview@7.0.0-dev.20260206.1)(magicast@0.5.2)(picomatch@4.0.3)(rollup@4.57.1)(typescript@5.9.3):
+  obuild@0.4.26(@typescript/native-preview@7.0.0-dev.20260206.1)(magicast@0.5.2)(picomatch@4.0.3)(rollup@4.57.1):
     dependencies:
       c12: 3.3.3(magicast@0.5.2)
       consola: 3.4.2
@@ -2097,7 +2092,7 @@ snapshots:
       pathe: 2.0.3
       pretty-bytes: 7.1.0
       rolldown: 1.0.0-rc.3
-      rolldown-plugin-dts: 0.22.1(@typescript/native-preview@7.0.0-dev.20260206.1)(rolldown@1.0.0-rc.3)(typescript@5.9.3)
+      rolldown-plugin-dts: 0.22.1(@typescript/native-preview@7.0.0-dev.20260206.1)(rolldown@1.0.0-rc.3)
       rollup-plugin-license: 3.6.0(picomatch@4.0.3)(rollup@4.57.1)
       tinyglobby: 0.2.15
     transitivePeerDependencies:
@@ -2167,7 +2162,7 @@ snapshots:
 
   pkg-types@2.3.0:
     dependencies:
-      confbox: 0.2.3
+      confbox: 0.2.4
       exsolve: 1.0.8
       pathe: 2.0.3
 
@@ -2188,7 +2183,7 @@ snapshots:
 
   resolve-pkg-maps@1.0.0: {}
 
-  rolldown-plugin-dts@0.22.1(@typescript/native-preview@7.0.0-dev.20260206.1)(rolldown@1.0.0-rc.3)(typescript@5.9.3):
+  rolldown-plugin-dts@0.22.1(@typescript/native-preview@7.0.0-dev.20260206.1)(rolldown@1.0.0-rc.3):
     dependencies:
       '@babel/generator': 8.0.0-rc.1
       '@babel/helper-validator-identifier': 8.0.0-rc.1
@@ -2202,7 +2197,6 @@ snapshots:
       rolldown: 1.0.0-rc.3
     optionalDependencies:
       '@typescript/native-preview': 7.0.0-dev.20260206.1
-      typescript: 5.9.3
     transitivePeerDependencies:
       - oxc-resolver
 
@@ -2329,9 +2323,6 @@ snapshots:
   tinyrainbow@3.0.3: {}
 
   tslib@2.8.1:
-    optional: true
-
-  typescript@5.9.3:
     optional: true
 
   ufo@1.6.3: {}

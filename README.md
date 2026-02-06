@@ -3,7 +3,7 @@
 <!-- automd:badges color=yellow codecov bundlejs -->
 
 [![npm version](https://img.shields.io/npm/v/rc9?color=yellow)](https://npmjs.com/package/rc9)
-[![npm downloads](https://img.shields.io/npm/dm/rc9?color=yellow)](https://npmjs.com/package/rc9)
+[![npm downloads](https://img.shields.io/npm/dm/rc9?color=yellow)](https://npm.chart.dev/rc9)
 [![bundle size](https://img.shields.io/bundlejs/size/rc9?color=yellow)](https://bundlejs.com/?q=rc9)
 [![codecov](https://img.shields.io/codecov/c/gh/unjs/rc9?color=yellow)](https://codecov.io/gh/unjs/rc9)
 
@@ -28,19 +28,22 @@ npm install rc9
 yarn add rc9
 
 # pnpm
-pnpm install rc9
+pnpm add rc9
 
 # bun
 bun install rc9
+
+# deno
+deno install npm:rc9
 ```
 
 <!-- /automd -->
 
 Import utils:
 
-<!-- automd:jsimport cjs src="./src/index.ts"-->
+<!-- automd:jsimport src="./src/index.ts"-->
 
-**ESM** (Node.js, Bun)
+**ESM** (Node.js, Bun, Deno)
 
 ```js
 import {
@@ -49,35 +52,15 @@ import {
   parseFile,
   read,
   readUser,
-  readUserConfig,
   serialize,
   write,
   writeUser,
+  readUserConfig,
   writeUserConfig,
+  updateUserConfig,
   update,
   updateUser,
-  updateUserConfig,
 } from "rc9";
-```
-
-**CommonJS** (Legacy Node.js)
-
-```js
-const {
-  defaults,
-  parse,
-  parseFile,
-  read,
-  readUser,
-  readUserConfig,
-  serialize,
-  write,
-  writeUser,
-  writeUserConfig,
-  update,
-  updateUser,
-  updateUserConfig,
-} = require("rc9");
 ```
 
 <!-- /automd -->
@@ -160,17 +143,11 @@ const defaults: RCOptions;
 function parse(contents: string, options?: RCOptions): RC;
 function parseFile(path: string, options?: RCOptions): RC;
 function read(options?: RCOptions | string): RC;
-/** @deprecated Use `readUserConfig` */
-function readUser(options?: RCOptions | string): RC;
 function readUserConfig(options?: RCOptions | string): RC;
 function serialize(config: RC): string;
 function write(config: RC, options?: RCOptions | string): void;
-/** @deprecated Use `writeUserConfig` */
-function writeUser(config: RC, options?: RCOptions | string): void;
 function writeUserConfig(config: RC, options?: RCOptions | string): void;
 function update(config: RC, options?: RCOptions | string): RC;
-/** @deprecated Use `updateUserConfig` */
-function updateUser(config: RC, options?: RCOptions | string): RC;
 function updateUserConfig(config: RC, options?: RCOptions | string): RC;
 ```
 
