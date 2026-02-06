@@ -1,5 +1,13 @@
 import { describe, test, expect } from "vitest";
-import { write, read, readUser, parse, update, updateUser, writeUser } from "../src/index.ts";
+import {
+  write,
+  read,
+  parse,
+  update,
+  readUserConfig,
+  writeUserConfig,
+  updateUserConfig,
+} from "../src/index.ts";
 
 process.env.XDG_CONFIG_HOME = __dirname;
 
@@ -18,8 +26,8 @@ describe("rc", () => {
   });
 
   test("Write config (user)", () => {
-    writeUser(config);
-    expect(readUser()).toMatchObject(config);
+    writeUserConfig(config);
+    expect(readUserConfig()).toMatchObject(config);
   });
 
   test("Read config", () => {
@@ -27,13 +35,23 @@ describe("rc", () => {
   });
 
   test("Update user config", () => {
-    updateUser({ "db.password": '"123"' });
-    expect(readUser().db.password).toBe(`"123"`);
+    updateUserConfig({ "db.password": '"123"' });
+    expect(readUserConfig().db.password).toBe(`"123"`);
   });
 
   test("Update user config to empty string", () => {
-    updateUser({ "db.password": "" });
-    expect(readUser().db.password).toBe("");
+    updateUserConfig({ "db.password": "" });
+    expect(readUserConfig().db.password).toBe("");
+  });
+
+  test("Write user config (config dir)", () => {
+    writeUserConfig(config, ".conf-user");
+    expect(readUserConfig(".conf-user")).toMatchObject(config);
+  });
+
+  test("Update user config (config dir)", () => {
+    updateUserConfig({ "db.password": "updated" }, ".conf-user");
+    expect(readUserConfig(".conf-user").db.password).toBe("updated");
   });
 
   test("Parse ignore invalid lines", () => {

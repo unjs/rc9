@@ -106,6 +106,7 @@ export function read<T extends RC = RC>(options?: RCOptions | string): T {
  * Reads a custom configuration file from a default or specified location and parses its contents.
  * @param {RCOptions|string} [options] - Options for reading the configuration file, or the name of the configuration file. See {@link RCOptions}.
  * @returns {RC} - The parsed configuration object.
+ * @deprecated Use {@link readUserConfig} instead, which uses `~/.config` following XDG conventions.
  */
 export function readUser<T extends RC = RC>(options?: RCOptions | string): T {
   options = withDefaults(options);
@@ -140,11 +141,46 @@ export function write<T extends RC = RC>(config: T, options?: RCOptions | string
  * Writes a custom configuration object to a file in a default or specified location.
  * @param {RC} config - The configuration object to write. See {@link RC}.
  * @param {RCOptions|string} [options] - Options for writing the configuration file, or the name of the configuration file. See {@link RCOptions}.
+ * @deprecated Use {@link writeUserConfig} instead, which uses `~/.config` following XDG conventions.
  */
 export function writeUser<T extends RC = RC>(config: T, options?: RCOptions | string) {
   options = withDefaults(options);
   options.dir = process.env.XDG_CONFIG_HOME || homedir();
   write(config, options);
+}
+
+/**
+ * Reads a configuration file from `$XDG_CONFIG_HOME` or `$HOME/.config` and parses its contents.
+ * @param {RCOptions|string} [options] - Options for reading the configuration file, or the name of the configuration file. See {@link RCOptions}.
+ * @returns {RC} - The parsed configuration object.
+ */
+export function readUserConfig<T extends RC = RC>(options?: RCOptions | string): T {
+  options = withDefaults(options);
+  options.dir = process.env.XDG_CONFIG_HOME || resolve(homedir(), ".config");
+  return read(options);
+}
+
+/**
+ * Writes a configuration object to a file in `$XDG_CONFIG_HOME` or `$HOME/.config`.
+ * @param {RC} config - The configuration object to write. See {@link RC}.
+ * @param {RCOptions|string} [options] - Options for writing the configuration file, or the name of the configuration file. See {@link RCOptions}.
+ */
+export function writeUserConfig<T extends RC = RC>(config: T, options?: RCOptions | string) {
+  options = withDefaults(options);
+  options.dir = process.env.XDG_CONFIG_HOME || resolve(homedir(), ".config");
+  write(config, options);
+}
+
+/**
+ * Updates a configuration object in `$XDG_CONFIG_HOME` or `$HOME/.config` by merging and writing the result.
+ * @param {RC} config - The configuration object to update. See {@link RC}.
+ * @param {RCOptions|string} [options] - Options for updating the configuration file, or the name of the configuration file. See {@link RCOptions}.
+ * @returns {RC} - The updated configuration object.
+ */
+export function updateUserConfig<T extends RC = RC>(config: T, options?: RCOptions | string): T {
+  options = withDefaults(options);
+  options.dir = process.env.XDG_CONFIG_HOME || resolve(homedir(), ".config");
+  return update(config, options);
 }
 
 /**
@@ -168,6 +204,7 @@ export function update<T extends RC = RC>(config: T, options?: RCOptions | strin
  * @param {RC} config - The configuration object to update. See {@link RC}.
  * @param {RCOptions|string} [options] - Options for updating the configuration file, or the name of the configuration file. See {@link RCOptions}.
  * @returns {RC} - The updated configuration object. See {@link RC}.
+ * @deprecated Use {@link updateUserConfig} instead, which uses `~/.config` following XDG conventions.
  */
 export function updateUser<T extends RC = RC>(config: T, options?: RCOptions | string): T {
   options = withDefaults(options);
