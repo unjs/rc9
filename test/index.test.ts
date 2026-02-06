@@ -1,5 +1,13 @@
 import { describe, test, expect } from "vitest";
-import { write, read, parse, update, readUserConfig, writeUserConfig, updateUserConfig } from "../src/index.ts";
+import {
+  write,
+  read,
+  parse,
+  update,
+  readUserConfig,
+  writeUserConfig,
+  updateUserConfig,
+} from "../src/index.ts";
 
 process.env.XDG_CONFIG_HOME = __dirname;
 
