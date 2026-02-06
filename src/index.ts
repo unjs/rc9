@@ -85,10 +85,7 @@ export function parse<T extends RC = RC>(contents: string, options: RCOptions = 
  * @param {RCOptions} [options={}] - Options to control the parsing behaviour. See {@link RCOptions}.
  * @returns {RC} - The parsed configuration object. See {@link RC}.
  */
-export function parseFile<T extends RC = RC>(
-  path: string,
-  options?: RCOptions,
-): T {
+export function parseFile<T extends RC = RC>(path: string, options?: RCOptions): T {
   if (!existsSync(path)) {
     return {} as T;
   }
@@ -132,10 +129,7 @@ export function serialize<T extends RC = RC>(config: T): string {
  * @param {RC} config - The configuration object to write. See {@link RC}.
  * @param {RCOptions|string} [options] - Options for writing the configuration file, or the name of the configuration file. See {@link RCOptions}.
  */
-export function write<T extends RC = RC>(
-  config: T,
-  options?: RCOptions | string,
-) {
+export function write<T extends RC = RC>(config: T, options?: RCOptions | string) {
   options = withDefaults(options);
   writeFileSync(resolve(options.dir!, options.name!), serialize(config), {
     encoding: "utf8",
@@ -147,10 +141,7 @@ export function write<T extends RC = RC>(
  * @param {RC} config - The configuration object to write. See {@link RC}.
  * @param {RCOptions|string} [options] - Options for writing the configuration file, or the name of the configuration file. See {@link RCOptions}.
  */
-export function writeUser<T extends RC = RC>(
-  config: T,
-  options?: RCOptions | string,
-) {
+export function writeUser<T extends RC = RC>(config: T, options?: RCOptions | string) {
   options = withDefaults(options);
   options.dir = process.env.XDG_CONFIG_HOME || homedir();
   write(config, options);
@@ -162,10 +153,7 @@ export function writeUser<T extends RC = RC>(
  * @param {RCOptions|string} [options] - Options for updating the configuration file, or the name of the configuration file. See {@link RCOptions}.
  * @returns {RC} - The updated configuration object. See {@link RC}.
  */
-export function update<T extends RC = RC>(
-  config: T,
-  options?: RCOptions | string,
-): T {
+export function update<T extends RC = RC>(config: T, options?: RCOptions | string): T {
   options = withDefaults(options);
   if (!options.flat) {
     config = unflatten(config, { overwrite: true });
@@ -181,10 +169,7 @@ export function update<T extends RC = RC>(
  * @param {RCOptions|string} [options] - Options for updating the configuration file, or the name of the configuration file. See {@link RCOptions}.
  * @returns {RC} - The updated configuration object. See {@link RC}.
  */
-export function updateUser<T extends RC = RC>(
-  config: T,
-  options?: RCOptions | string,
-): T {
+export function updateUser<T extends RC = RC>(config: T, options?: RCOptions | string): T {
   options = withDefaults(options);
   options.dir = process.env.XDG_CONFIG_HOME || homedir();
   return update(config, options);
