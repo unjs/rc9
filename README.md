@@ -49,11 +49,14 @@ import {
   parseFile,
   read,
   readUser,
+  readUserConfig,
   serialize,
   write,
   writeUser,
+  writeUserConfig,
   update,
   updateUser,
+  updateUserConfig,
 } from "rc9";
 ```
 
@@ -66,11 +69,14 @@ const {
   parseFile,
   read,
   readUser,
+  readUserConfig,
   serialize,
   write,
   writeUser,
+  writeUserConfig,
   update,
   updateUser,
+  updateUserConfig,
 } = require("rc9");
 ```
 
@@ -117,15 +123,16 @@ write(config); // or write(config, '.conf')
 
 **User Config:**
 
-It is common to keep config in user home directory (MacOS: `/Users/{name}`, Linux: `/home/{name}`, Windows: `C:\users\{name}`)
-
-you can use `readUser`/`writeuser`/`updateUser` shortcuts to quickly do this:
+You can use `readUserConfig`/`writeUserConfig`/`updateUserConfig` to store config in the user's config directory (`$XDG_CONFIG_HOME` or `~/.config`):
 
 ```js
-writeUser({ token: 123 }, ".zoorc"); // Will be saved in {home}/.zoorc
+writeUserConfig({ token: 123 }, ".zoorc"); // Will be saved in ~/.config/.zoorc
 
-const conf = readUser(".zoorc"); // { token: 123 }
+const conf = readUserConfig(".zoorc"); // { token: 123 }
 ```
+
+> [!NOTE]
+> `readUser`/`writeUser`/`updateUser` are deprecated. Use `readUserConfig`/`writeUserConfig`/`updateUserConfig` instead, which follow XDG conventions (`~/.config`).
 
 ## Unflatten
 
@@ -153,12 +160,18 @@ const defaults: RCOptions;
 function parse(contents: string, options?: RCOptions): RC;
 function parseFile(path: string, options?: RCOptions): RC;
 function read(options?: RCOptions | string): RC;
+/** @deprecated Use `readUserConfig` */
 function readUser(options?: RCOptions | string): RC;
+function readUserConfig(options?: RCOptions | string): RC;
 function serialize(config: RC): string;
 function write(config: RC, options?: RCOptions | string): void;
+/** @deprecated Use `writeUserConfig` */
 function writeUser(config: RC, options?: RCOptions | string): void;
+function writeUserConfig(config: RC, options?: RCOptions | string): void;
 function update(config: RC, options?: RCOptions | string): RC;
+/** @deprecated Use `updateUserConfig` */
 function updateUser(config: RC, options?: RCOptions | string): RC;
+function updateUserConfig(config: RC, options?: RCOptions | string): RC;
 ```
 
 **Types:**
