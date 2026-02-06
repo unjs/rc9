@@ -2,6 +2,39 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## v3.0.0
+
+[compare changes](https://github.com/unjs/rc9/compare/v2.1.2...v3.0.0)
+
+### 🚀 Enhancements
+
+- `readUserConfig` and `writeUserConfig` utils ([#173](https://github.com/unjs/rc9/pull/173))
+
+### 📖 Documentation
+
+- Add jsdocs to exported functions ([#124](https://github.com/unjs/rc9/pull/124))
+
+### 📦 Build
+
+- Esm-only dist ([f9bf761](https://github.com/unjs/rc9/commit/f9bf761))
+- Export `RC` and `RCOptions` types ([#137](https://github.com/unjs/rc9/pull/137))
+
+### 🏡 Chore
+
+- Update deps ([fd31aec](https://github.com/unjs/rc9/commit/fd31aec))
+- Remove tea.yaml ([2194560](https://github.com/unjs/rc9/commit/2194560))
+- Update typescript ([c94ee46](https://github.com/unjs/rc9/commit/c94ee46))
+- Update ci ([01a82e4](https://github.com/unjs/rc9/commit/01a82e4))
+- Use oxfmt and oxlint ([f357918](https://github.com/unjs/rc9/commit/f357918))
+- Apply automated updates ([4e5a3a0](https://github.com/unjs/rc9/commit/4e5a3a0))
+- Update readme ([6bead30](https://github.com/unjs/rc9/commit/6bead30))
+
+### ❤️ Contributors
+
+- Pooya Parsa ([@pi0](https://github.com/pi0))
+- Max <maximogarciamtnez@gmail.com>
+- 云游君 ([@YunYouJun](https://github.com/YunYouJun))
+
 ## v2.1.2
 
 [compare changes](https://github.com/unjs/rc9/compare/v2.1.1...v2.1.2)
