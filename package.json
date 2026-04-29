@@ -24,21 +24,21 @@
     "typecheck": "tsgo --noEmit"
   },
   "dependencies": {
-    "defu": "^6.1.6",
+    "defu": "^6.1.7",
     "destr": "^2.0.5"
   },
   "devDependencies": {
-    "@types/node": "^25.5.0",
-    "@typescript/native-preview": "^7.0.0-dev.20260401.1",
-    "@vitest/coverage-v8": "^4.1.2",
+    "@types/node": "^25.6.0",
+    "@typescript/native-preview": "^7.0.0-dev.20260429.1",
+    "@vitest/coverage-v8": "^4.1.5",
     "automd": "^0.4.3",
     "changelogen": "^0.6.2",
     "flat": "^6.0.1",
-    "obuild": "^0.4.32",
-    "oxfmt": "^0.43.0",
-    "oxlint": "^1.58.0",
-    "typescript": "^6.0.2",
-    "vitest": "^4.1.2"
+    "obuild": "^0.4.33",
+    "oxfmt": "^0.47.0",
+    "oxlint": "^1.62.0",
+    "typescript": "^6.0.3",
+    "vitest": "^4.1.5"
   },
-  "packageManager": "pnpm@10.33.0"
+  "packageManager": "pnpm@10.33.2"
 }
