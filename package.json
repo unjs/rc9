@@ -28,17 +28,17 @@
     "destr": "^2.0.5"
   },
   "devDependencies": {
-    "@types/node": "^25.8.0",
-    "@typescript/native-preview": "^7.0.0-dev.20260516.1",
-    "@vitest/coverage-v8": "^4.1.6",
+    "@types/node": "^25.9.1",
+    "@typescript/native-preview": "^7.0.0-dev.20260521.1",
+    "@vitest/coverage-v8": "^4.1.7",
     "automd": "^0.4.3",
     "changelogen": "^0.6.2",
     "flat": "^6.0.1",
     "obuild": "^0.4.35",
-    "oxfmt": "^0.50.0",
-    "oxlint": "^1.65.0",
+    "oxfmt": "^0.51.0",
+    "oxlint": "^1.66.0",
     "typescript": "^6.0.3",
-    "vitest": "^4.1.6"
+    "vitest": "^4.1.7"
   },
   "packageManager": "pnpm@10.33.4"
 }
