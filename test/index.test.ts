@@ -1,4 +1,6 @@
-import { describe, test, expect } from "vitest";
+import { existsSync, rmSync } from "node:fs";
+import { resolve } from "node:path";
+import { describe, test, expect, afterAll } from "vitest";
 import {
   write,
   read,
@@ -8,6 +10,10 @@ import {
   writeUserConfig,
   updateUserConfig,
 } from "../src/index.ts";
+
+afterAll(() => {
+  rmSync(resolve(__dirname, ".tmp"), { recursive: true, force: true });
+});
 
 process.env.XDG_CONFIG_HOME = __dirname;
 
@@ -77,6 +83,32 @@ describe("rc", () => {
     const object = { x: 1, "x.y": 2 };
     update(object, { flat: true, name: ".conf2" });
     expect(read({ flat: true, name: ".conf2" })).toMatchObject(object);
+  });
+
+  test("Write config creates missing directories", () => {
+    const dir = resolve(__dirname, ".tmp/nested/deeply");
+    rmSync(dir, { recursive: true, force: true });
+    expect(existsSync(dir)).toBe(false);
+    write(config, { dir, name: ".conf" });
+    expect(read({ dir, name: ".conf" })).toMatchObject(config);
+  });
+
+  test("Update user config creates missing directories", () => {
+    const previousConfigHome = process.env.XDG_CONFIG_HOME;
+    process.env.XDG_CONFIG_HOME = resolve(__dirname, ".tmp/xdg/nested");
+    try {
+      const dir = resolve(__dirname, ".tmp/xdg/nested");
+      rmSync(dir, { recursive: true, force: true });
+      expect(existsSync(dir)).toBe(false);
+      updateUserConfig(config, ".conf-nested");
+      expect(readUserConfig(".conf-nested")).toMatchObject(config);
+    } finally {
+      if (previousConfigHome === undefined) {
+        delete process.env.XDG_CONFIG_HOME;
+      } else {
+        process.env.XDG_CONFIG_HOME = previousConfigHome;
+      }
+    }
   });
 
   test("Parse indexless arrays", () => {

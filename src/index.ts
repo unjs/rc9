@@ -1,5 +1,5 @@
-import { existsSync, readFileSync, writeFileSync } from "node:fs";
-import { resolve } from "node:path";
+import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
+import { dirname, resolve } from "node:path";
 import { homedir } from "node:os";
 import destr from "destr";
 import { flatten, unflatten } from "flat";
@@ -132,7 +132,9 @@ export function serialize<T extends RC = RC>(config: T): string {
  */
 export function write<T extends RC = RC>(config: T, options?: RCOptions | string) {
   options = withDefaults(options);
-  writeFileSync(resolve(options.dir!, options.name!), serialize(config), {
+  const path = resolve(options.dir!, options.name!);
+  mkdirSync(dirname(path), { recursive: true });
+  writeFileSync(path, serialize(config), {
     encoding: "utf8",
   });
 }

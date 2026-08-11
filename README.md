@@ -114,6 +114,8 @@ writeUserConfig({ token: 123 }, ".zoorc"); // Will be saved in ~/.config/.zoorc
 const conf = readUserConfig(".zoorc"); // { token: 123 }
 ```
 
+The config directory is created if it doesn't exist.
+
 > [!NOTE]
 > `readUser`/`writeUser`/`updateUser` are deprecated. Use `readUserConfig`/`writeUserConfig`/`updateUserConfig` instead, which follow XDG conventions (`~/.config`).
 
