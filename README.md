@@ -55,6 +55,7 @@ import {
   serialize,
   write,
   writeUser,
+  userConfigDir,
   readUserConfig,
   writeUserConfig,
   updateUserConfig,
@@ -114,7 +115,7 @@ writeUserConfig({ token: 123 }, ".zoorc"); // Will be saved in ~/.config/.zoorc
 const conf = readUserConfig(".zoorc"); // { token: 123 }
 ```
 
-The config directory is created if it doesn't exist.
+The config directory is created if it doesn't exist. Use `userConfigDir()` if you need to know where a value was written.
 
 > [!NOTE]
 > `readUser`/`writeUser`/`updateUser` are deprecated. Use `readUserConfig`/`writeUserConfig`/`updateUserConfig` instead, which follow XDG conventions (`~/.config`).
@@ -146,6 +147,7 @@ function parse(contents: string, options?: RCOptions): RC;
 function parseFile(path: string, options?: RCOptions): RC;
 function read(options?: RCOptions | string): RC;
 function readUserConfig(options?: RCOptions | string): RC;
+function userConfigDir(): string;
 function serialize(config: RC): string;
 function write(config: RC, options?: RCOptions | string): void;
 function writeUserConfig(config: RC, options?: RCOptions | string): void;
