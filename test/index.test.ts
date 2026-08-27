@@ -1,4 +1,5 @@
 import { describe, test, expect } from "vitest";
+import { resolve } from "node:path";
 import {
   write,
   read,
@@ -90,5 +91,11 @@ describe("rc", () => {
         foo: ["A", "B"],
       },
     });
+  });
+
+  test("Write config to non-existent directory", () => {
+    const nestedDir = resolve(process.cwd(), ".tmp/nested/dir");
+    write(config, { dir: nestedDir, name: ".conf" });
+    expect(read({ dir: nestedDir, name: ".conf" })).toMatchObject(config);
   });
 });

@@ -1,5 +1,5 @@
-import { existsSync, readFileSync, writeFileSync } from "node:fs";
-import { resolve } from "node:path";
+import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
+import { dirname, resolve } from "node:path";
 import { homedir } from "node:os";
 import destr from "destr";
 import { flatten, unflatten } from "flat";
@@ -28,6 +28,13 @@ export interface RCOptions {
    * @optional
    */
   flat?: boolean;
+
+  /**
+   * Automatically create directory if it does not exist when writing.
+   * @default true
+   * @optional
+   */
+  createDir?: boolean;
 }
 
 /**
@@ -132,7 +139,11 @@ export function serialize<T extends RC = RC>(config: T): string {
  */
 export function write<T extends RC = RC>(config: T, options?: RCOptions | string) {
   options = withDefaults(options);
-  writeFileSync(resolve(options.dir!, options.name!), serialize(config), {
+  const filePath = resolve(options.dir!, options.name!);
+  if (options.createDir !== false) {
+    mkdirSync(dirname(filePath), { recursive: true });
+  }
+  writeFileSync(filePath, serialize(config), {
     encoding: "utf8",
   });
 }
