@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## v3.1.0
+
+[compare changes](https://github.com/unjs/rc9/compare/v3.0.1...v3.1.0)
+
+### 🚀 Enhancements
+
+- Create target directory when writing config ([#185](https://github.com/unjs/rc9/pull/185))
+- Export `userConfigDir` ([#186](https://github.com/unjs/rc9/pull/186))
+
+### 🏡 Chore
+
+- Update deps ([19b1e01](https://github.com/unjs/rc9/commit/19b1e01))
+- Update release script ([ef9f630](https://github.com/unjs/rc9/commit/ef9f630))
+
+### ❤️ Contributors
+
+- Pooya Parsa ([@pi0](https://github.com/pi0))
+- Daniel Roe ([@danielroe](https://github.com/danielroe))
+
 ## v3.0.1
 
 [compare changes](https://github.com/unjs/rc9/compare/v3.0.0...v3.0.1)
