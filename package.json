@@ -19,7 +19,7 @@
     "dev": "vitest",
     "lint": "oxlint . && oxfmt --check src test",
     "format": "oxlint . --fix && oxfmt src test",
-    "release": "pnpm test && pnpm build && changelogen --release --push && npm publish",
+    "release": "pnpm test && pnpm build && changelogen --release --push && pnpm publish",
     "test": "pnpm lint && pnpm typecheck && vitest run --coverage",
     "typecheck": "tsc --noEmit"
   },
