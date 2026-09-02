@@ -9,6 +9,7 @@ import {
   readUserConfig,
   writeUserConfig,
   updateUserConfig,
+  userConfigDir,
   writeUser,
   updateUser,
 } from "../src/index.ts";
@@ -99,9 +100,8 @@ describe("rc", () => {
     const previousConfigHome = process.env.XDG_CONFIG_HOME;
     process.env.XDG_CONFIG_HOME = resolve(__dirname, ".tmp/xdg/nested");
     try {
-      const dir = resolve(__dirname, ".tmp/xdg/nested");
-      rmSync(dir, { recursive: true, force: true });
-      expect(existsSync(dir)).toBe(false);
+      rmSync(userConfigDir(), { recursive: true, force: true });
+      expect(existsSync(userConfigDir())).toBe(false);
       updateUserConfig(config, ".conf-nested");
       expect(readUserConfig(".conf-nested")).toMatchObject(config);
     } finally {

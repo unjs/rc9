@@ -164,13 +164,21 @@ export function writeUser<T extends RC = RC>(config: T, options?: RCOptions | st
 }
 
 /**
+ * Resolves the directory used by the `*UserConfig` helpers: `$XDG_CONFIG_HOME` or `$HOME/.config`.
+ * @returns {string} - The absolute path to the user configuration directory.
+ */
+export function userConfigDir(): string {
+  return process.env.XDG_CONFIG_HOME || resolve(homedir(), ".config");
+}
+
+/**
  * Reads a configuration file from `$XDG_CONFIG_HOME` or `$HOME/.config` and parses its contents.
  * @param {RCOptions|string} [options] - Options for reading the configuration file, or the name of the configuration file. See {@link RCOptions}.
  * @returns {RC} - The parsed configuration object.
  */
 export function readUserConfig<T extends RC = RC>(options?: RCOptions | string): T {
   options = withDefaults(options);
-  options.dir = process.env.XDG_CONFIG_HOME || resolve(homedir(), ".config");
+  options.dir = userConfigDir();
   return read(options);
 }
 
@@ -181,7 +189,7 @@ export function readUserConfig<T extends RC = RC>(options?: RCOptions | string):
  */
 export function writeUserConfig<T extends RC = RC>(config: T, options?: RCOptions | string) {
   options = withDefaults(options);
-  options.dir = process.env.XDG_CONFIG_HOME || resolve(homedir(), ".config");
+  options.dir = userConfigDir();
   _write(config, options, true);
 }
 
@@ -193,7 +201,7 @@ export function writeUserConfig<T extends RC = RC>(config: T, options?: RCOption
  */
 export function updateUserConfig<T extends RC = RC>(config: T, options?: RCOptions | string): T {
   options = withDefaults(options);
-  options.dir = process.env.XDG_CONFIG_HOME || resolve(homedir(), ".config");
+  options.dir = userConfigDir();
   return _update(config, options, true);
 }
 
