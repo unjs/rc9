@@ -1,4 +1,4 @@
-import { existsSync, rmSync } from "node:fs";
+import { chmodSync, existsSync, rmSync, statSync } from "node:fs";
 import { resolve } from "node:path";
 import { describe, test, expect, afterAll } from "vitest";
 import {
@@ -10,6 +10,8 @@ import {
   writeUserConfig,
   updateUserConfig,
   userConfigDir,
+  writeUser,
+  updateUser,
 } from "../src/index.ts";
 
 afterAll(() => {
@@ -122,5 +124,59 @@ describe("rc", () => {
         foo: ["A", "B"],
       },
     });
+  });
+});
+
+describe.skipIf(process.platform === "win32")("posix permissions", () => {
+  const mode = (path: string) => statSync(path).mode & 0o777;
+
+  const withConfigHome = (dir: string, fn: () => void) => {
+    const previousConfigHome = process.env.XDG_CONFIG_HOME;
+    process.env.XDG_CONFIG_HOME = dir;
+    rmSync(dir, { recursive: true, force: true });
+    try {
+      fn();
+    } finally {
+      if (previousConfigHome === undefined) {
+        delete process.env.XDG_CONFIG_HOME;
+      } else {
+        process.env.XDG_CONFIG_HOME = previousConfigHome;
+      }
+    }
+  };
+
+  for (const [name, writeConfig] of [
+    ["writeUser", writeUser],
+    ["writeUserConfig", writeUserConfig],
+    ["updateUser", updateUser],
+    ["updateUserConfig", updateUserConfig],
+  ] as const) {
+    test(`${name} creates private dir and file`, () => {
+      const dir = resolve(__dirname, `.tmp/perms/${name}`);
+      withConfigHome(dir, () => {
+        writeConfig(config, ".conf");
+        expect(mode(dir)).toBe(0o700);
+        expect(mode(resolve(dir, ".conf"))).toBe(0o600);
+      });
+    });
+
+    test(`${name} tightens permissions of an existing file`, () => {
+      const dir = resolve(__dirname, `.tmp/perms-existing/${name}`);
+      withConfigHome(dir, () => {
+        write(config, { dir, name: ".conf" });
+        chmodSync(resolve(dir, ".conf"), 0o644);
+        writeConfig(config, ".conf");
+        expect(mode(resolve(dir, ".conf"))).toBe(0o600);
+      });
+    });
+  }
+
+  test("write keeps default permissions", () => {
+    const dir = resolve(__dirname, ".tmp/perms-generic");
+    rmSync(dir, { recursive: true, force: true });
+    write(config, { dir, name: ".conf" });
+    const umask = process.umask();
+    expect(mode(dir)).toBe(0o777 & ~umask);
+    expect(mode(resolve(dir, ".conf"))).toBe(0o666 & ~umask);
   });
 });
