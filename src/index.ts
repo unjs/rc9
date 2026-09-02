@@ -1,5 +1,5 @@
-import { existsSync, readFileSync, writeFileSync } from "node:fs";
-import { resolve } from "node:path";
+import { chmodSync, existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
+import { dirname, resolve } from "node:path";
 import { homedir } from "node:os";
 import destr from "destr";
 import { flatten, unflatten } from "flat";
@@ -131,10 +131,24 @@ export function serialize<T extends RC = RC>(config: T): string {
  * @param {RCOptions|string} [options] - Options for writing the configuration file, or the name of the configuration file. See {@link RCOptions}.
  */
 export function write<T extends RC = RC>(config: T, options?: RCOptions | string) {
-  options = withDefaults(options);
-  writeFileSync(resolve(options.dir!, options.name!), serialize(config), {
-    encoding: "utf8",
+  _write(config, withDefaults(options), false);
+}
+
+// User configuration often contains credentials, keep it readable by its owner only (secure).
+function _write<T extends RC = RC>(config: T, options: RCOptions, secure: boolean) {
+  const path = resolve(options.dir!, options.name!);
+  mkdirSync(dirname(path), {
+    recursive: true,
+    ...(secure && { mode: 0o700 }),
   });
+  writeFileSync(path, serialize(config), {
+    encoding: "utf8",
+    ...(secure && { mode: 0o600 }),
+  });
+  if (secure) {
+    // `mode` above only applies to files created by this call.
+    chmodSync(path, 0o600);
+  }
 }
 
 /**
@@ -146,7 +160,7 @@ export function write<T extends RC = RC>(config: T, options?: RCOptions | string
 export function writeUser<T extends RC = RC>(config: T, options?: RCOptions | string) {
   options = withDefaults(options);
   options.dir = process.env.XDG_CONFIG_HOME || homedir();
-  write(config, options);
+  _write(config, options, true);
 }
 
 /**
@@ -168,7 +182,7 @@ export function readUserConfig<T extends RC = RC>(options?: RCOptions | string):
 export function writeUserConfig<T extends RC = RC>(config: T, options?: RCOptions | string) {
   options = withDefaults(options);
   options.dir = process.env.XDG_CONFIG_HOME || resolve(homedir(), ".config");
-  write(config, options);
+  _write(config, options, true);
 }
 
 /**
@@ -180,7 +194,7 @@ export function writeUserConfig<T extends RC = RC>(config: T, options?: RCOption
 export function updateUserConfig<T extends RC = RC>(config: T, options?: RCOptions | string): T {
   options = withDefaults(options);
   options.dir = process.env.XDG_CONFIG_HOME || resolve(homedir(), ".config");
-  return update(config, options);
+  return _update(config, options, true);
 }
 
 /**
@@ -190,12 +204,15 @@ export function updateUserConfig<T extends RC = RC>(config: T, options?: RCOptio
  * @returns {RC} - The updated configuration object. See {@link RC}.
  */
 export function update<T extends RC = RC>(config: T, options?: RCOptions | string): T {
-  options = withDefaults(options);
+  return _update(config, withDefaults(options), false);
+}
+
+function _update<T extends RC = RC>(config: T, options: RCOptions, secure: boolean): T {
   if (!options.flat) {
     config = unflatten(config, { overwrite: true });
   }
   const newConfig = defu(config, read(options));
-  write(newConfig, options);
+  _write(newConfig, options, secure);
   return newConfig as T;
 }
 
@@ -209,5 +226,5 @@ export function update<T extends RC = RC>(config: T, options?: RCOptions | strin
 export function updateUser<T extends RC = RC>(config: T, options?: RCOptions | string): T {
   options = withDefaults(options);
   options.dir = process.env.XDG_CONFIG_HOME || homedir();
-  return update(config, options);
+  return _update(config, options, true);
 }
