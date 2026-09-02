@@ -5,10 +5,6 @@ import destr from "destr";
 import { flatten, unflatten } from "flat";
 import { defu } from "defu";
 
-// User configuration often contains credentials, keep it readable by its owner only.
-const USER_DIR_MODE = 0o700;
-const USER_FILE_MODE = 0o600;
-
 const RE_KEY_VAL = /^\s*([^\s=]+)\s*=\s*(.*)?\s*$/;
 const RE_LINES = /\n|\r|\r\n/;
 
@@ -138,19 +134,20 @@ export function write<T extends RC = RC>(config: T, options?: RCOptions | string
   _write(config, withDefaults(options), false);
 }
 
+// User configuration often contains credentials, keep it readable by its owner only (secure).
 function _write<T extends RC = RC>(config: T, options: RCOptions, secure: boolean) {
   const path = resolve(options.dir!, options.name!);
   mkdirSync(dirname(path), {
     recursive: true,
-    ...(secure && { mode: USER_DIR_MODE }),
+    ...(secure && { mode: 0o700 }),
   });
   writeFileSync(path, serialize(config), {
     encoding: "utf8",
-    ...(secure && { mode: USER_FILE_MODE }),
+    ...(secure && { mode: 0o600 }),
   });
   if (secure) {
     // `mode` above only applies to files created by this call.
-    chmodSync(path, USER_FILE_MODE);
+    chmodSync(path, 0o600);
   }
 }
 
