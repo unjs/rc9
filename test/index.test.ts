@@ -125,6 +125,21 @@ describe("rc", () => {
       },
     });
   });
+
+  test("Indexless array replaces a non-array value under the same key", () => {
+    // `concat` used to throw on a number and silently join a string.
+    expect(parse("a=1\na[]=2", { flat: true })).toMatchObject({ a: [2] });
+    expect(parse('a="x"\na[]=2', { flat: true })).toMatchObject({ a: [2] });
+    expect(parse('a={ "b": 1 }\na[]=2', { flat: true })).toMatchObject({ a: [2] });
+    expect(parse("a=1\na[]=2\na[]=3", { flat: true })).toMatchObject({ a: [2, 3] });
+  });
+
+  test("Indexless array keys cannot reach the prototype", () => {
+    const parsed = parse("__proto__[]=1\nconstructor[]=2\n[]=3", { flat: true });
+    expect(Object.keys(parsed)).toHaveLength(0);
+    expect(Array.isArray(Object.getPrototypeOf(parsed))).toBe(false);
+    expect(({} as Record<string, unknown>).polluted).toBeUndefined();
+  });
 });
 
 describe.skipIf(process.platform === "win32")("posix permissions", () => {

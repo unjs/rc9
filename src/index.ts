@@ -46,6 +46,10 @@ function withDefaults(options?: RCOptions | string): RCOptions {
   return { ...defaults, ...options };
 }
 
+function isUnsafeKey(key: string): boolean {
+  return key === "__proto__" || key === "constructor";
+}
+
 export function parse<T extends RC = RC>(contents: string, options: RCOptions = {}): T {
   const config: RC = {};
 
@@ -60,7 +64,7 @@ export function parse<T extends RC = RC>(contents: string, options: RCOptions = 
     // Key
     const key = match[1];
 
-    if (!key || key === "__proto__" || key === "constructor") {
+    if (!key || isUnsafeKey(key)) {
       continue;
     }
 
@@ -68,8 +72,16 @@ export function parse<T extends RC = RC>(contents: string, options: RCOptions = 
 
     if (key.endsWith("[]")) {
       const nkey = key.slice(0, Math.max(0, key.length - 2));
+
+      if (!nkey || isUnsafeKey(nkey)) {
+        continue;
+      }
+
+      const previous = config[nkey];
+      // A non-array value under the same key is replaced, not appended to:
+      // `concat` on a string silently joins and on a number or object throws.
       // eslint-disable-next-line unicorn/prefer-spread
-      config[nkey] = (config[nkey] || []).concat(value);
+      config[nkey] = Array.isArray(previous) ? previous.concat(value) : [value];
       continue;
     }
 
