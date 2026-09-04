@@ -16,7 +16,7 @@ importers:
         version: 2.0.5
     devDependencies:
       '@types/node':
-        specifier: ^26
+        specifier: ^26.4.1
         version: 26.4.1
       '@vitest/coverage-v8':
         specifier: ^4.1.11
@@ -34,7 +34,7 @@ importers:
         specifier: ^0.4.39
         version: 0.4.39(chokidar@5.0.0)(dotenv@17.4.2)(giget@3.3.1)(jiti@2.7.0)(magicast@0.5.4)(typescript@7.0.2)
       oxfmt:
-        specifier: '>=0.65.0'
+        specifier: '>=0.66.0'
         version: 0.66.0
       oxlint:
         specifier: ^1.81.0
