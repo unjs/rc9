@@ -52,7 +52,12 @@ export function parse<T extends RC = RC>(contents: string, options: RCOptions = 
   const lines = contents.split(RE_LINES);
 
   for (const line of lines) {
-    const match = line.match(RE_KEY_VAL);
+    const trimmed = line.trimStart();
+    if (!trimmed || trimmed.startsWith("#") || trimmed.startsWith(";")) {
+      continue;
+    }
+
+    const match = trimmed.match(RE_KEY_VAL);
     if (!match) {
       continue;
     }

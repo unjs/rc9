@@ -69,10 +69,13 @@ describe("rc", () => {
       foo=bar
       __proto__=no
       # test
+      #commented=123
+      ;ini_comment=456
+      # indented=789
+      ; indented=000
       bar = baz
-      empty =
     `),
-    ).toMatchObject({
+    ).toEqual({
       foo: "bar",
       bar: "baz",
     });
